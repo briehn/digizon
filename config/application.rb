@@ -35,17 +35,14 @@ module Digizon
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    config.railties_order = [:all, :main_app]
 
-    module Backend
-      class Application < Rails::Application
-        # ...
-        config.middleware.use ActionDispatch::Cookies
-        config.middleware.use ActionDispatch::Session::CookieStore,
-          key: '_digizon_session',
-          same_site: :lax, 
-          secure: Rails.env.production?
-      end
-    end
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore,
+      key: '_digizon_session',
+      same_site: :lax, 
+      secure: Rails.env.production?
+
+
+    config.railties_order = [:all, :main_app]
   end
 end
