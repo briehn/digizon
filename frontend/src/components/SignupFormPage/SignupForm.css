@@ -1,0 +1,81 @@
+@import url('https://fonts.cdnfonts.com/css/amazon-ember');
+
+.center-section {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Amazon Ember', sans-serif;
+}
+
+.center-form {
+    display: flex;
+    flex-direction: column;
+    width: 296px;
+    padding: 20px 25px;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 4px;
+  }
+
+.center-form > form > label {
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    font-weight: 700;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    margin-bottom: 14px;
+  }
+
+.center-form > form > label > input {
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;    
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+    outline: 0;
+    height: 25px;
+    padding: 3px 7px;
+    background-color: #fff;
+}
+
+.center-form > form > label > input:focus {
+    outline: 0;
+    border-color: #e77600;
+    box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
+
+.createAccount {
+    margin-bottom: 17px;
+    font-size: 28px;
+}
+
+.sign-up-label > input {
+    margin-top: 5px;
+}
+
+.sign-up-button {
+    margin-bottom: 26px;
+    width: 100%;
+    background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    height: 29px;
+    border-radius: 2px;
+}
+
+.icon-content {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 12px;
+    line-height: 15px;
+    color: #2b2b2b;
+    font-weight: normal;
+}
