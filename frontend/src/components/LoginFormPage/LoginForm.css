@@ -49,11 +49,11 @@
     font-size: 28px;
 }
 
-.login-label > input {
+.sign-up-label > input {
     margin-top: 5px;
 }
 
-.login-button {
+.sign-up-button {
     margin-bottom: 26px;
     width: 100%;
     background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
@@ -94,42 +94,25 @@
     color: #0066c0;
 }
 
-.divider {  
-    height: 24px;
-    background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
-    z-index: 0;
-    margin-top: 25px;
-    margin-bottom: -18px;
-}
 
 .options-tag {
     font-size: 12px;
     margin-top: 20px;
 }
 
-.divider:after {
-    display: block;
-    width: 100%;
-    height: 24px;
-    background-color: transparent;
-    background: linear-gradient(to right,#fff,rgba(255,255,255,0),#fff);
-    z-index: 1;
-    content: "";
-}
-
-.signup-button {
-    width: 100%;
-    height: 31px;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: rgb(169, 169, 169);
-    border-radius: 3px;
-    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
-    cursor: pointer;
+.divider-break {
+    border-bottom: 1px solid rgb(206, 205, 205);
     width: 350px;
+    margin-top: 35px;
   }
-
-.signup-button:hover {
-    background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 205, 205));
-    border-color: #a2a6ac #979aa1 #82858a;
+  
+.divider-container > h5 {
+    text-align: center;
+    margin-top: -8px;
+    margin-left: 115px;
+    background-color: white;
+    color: rgb(166, 166, 166);
+    width: 120px;
+    font-size: 13px;
   }
+  

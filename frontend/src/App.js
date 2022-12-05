@@ -8,8 +8,10 @@ import "./reset.css";
 function App() {
   return (
     <>
-      <Navigation />
       <Switch>
+        <Route exact path = "/">
+          <Navigation />
+        </Route>
         <Route path="/login">
           <LoginFormPage />
         </Route>
