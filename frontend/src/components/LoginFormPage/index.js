@@ -8,7 +8,7 @@ import logo from "../../assets/logo.png";
 function LoginFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [credential, setCredential] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -17,7 +17,7 @@ function LoginFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
+    return dispatch(sessionActions.login({ email, password })).catch(
       async (res) => {
         let data;
         try {
@@ -31,6 +31,14 @@ function LoginFormPage() {
         else setErrors([res.statusText]);
       }
     );
+  };
+
+  const loginDemo = () => {
+    const demoUser = {
+      email: "tai@digi.io",
+      password: "password",
+    };
+    dispatch(sessionActions.login(demoUser));
   };
 
   return (
@@ -50,8 +58,8 @@ function LoginFormPage() {
             Email
             <input
               type="text"
-              value={credential}
-              onChange={(e) => setCredential(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </label>
@@ -64,10 +72,17 @@ function LoginFormPage() {
               required
             />
           </label>
-          <button className="login-button" type="submit">Log In</button>
+          <button className="login-button" type="submit">
+            Log In
+          </button>
         </form>
-        <p className="terms">By creating an account, you agree that Digizon's logo is beautiful and 
-          deserves to be printed and framed.</p>
+        <button className="login-button" type="submit" onClick={loginDemo}>
+          Demo Login
+        </button>
+        <p className="terms">
+          By creating an account, you agree that Digizon's logo is beautiful and
+          deserves to be printed and framed.
+        </p>
       </div>
       <div className="divider-container">
         <div className="divider-break"></div>

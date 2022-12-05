@@ -1,5 +1,5 @@
 // frontend/src/components/SignupFormPage/index.js
-import './SignupForm.css';
+import "./SignupForm.css";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import logo from "../../assets/logo.png";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -17,27 +17,30 @@ function SignupFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const buttonText = (email.length > 0) ? `Verify Email` : `Continue`;
+  const buttonText = email.length > 0 ? `Verify Email` : `Continue`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, name, password }))
-        .catch(async (res) => {
-        let data;
-        try {
-          // .clone() essentially allows you to read the response body twice
-          data = await res.clone().json();
-        } catch {
-          data = await res.text(); // Will hit this case if the server is down
+      return dispatch(sessionActions.signup({ email, name, password })).catch(
+        async (res) => {
+          let data;
+          try {
+            // .clone() essentially allows you to read the response body twice
+            data = await res.clone().json();
+          } catch {
+            data = await res.text(); // Will hit this case if the server is down
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
         }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
+      );
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors([
+      "Confirm Password field must be the same as the Password field",
+    ]);
   };
 
   return (
@@ -49,7 +52,10 @@ function SignupFormPage() {
         <p className="createAccount">Create account</p>
         <form onSubmit={handleSubmit}>
           <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
+            {/* {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))} */}
+            {console.log(errors)}
           </ul>
           <label className="sign-up-label">
             Your name
@@ -58,16 +64,15 @@ function SignupFormPage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="First and last name"
-              required
             />
           </label>
+          <div className="error"> </div>
           <label className="sign-up-label">
             Email
             <input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </label>
           <label className="sign-up-label">
@@ -76,10 +81,11 @@ function SignupFormPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
               placeholder="At least 6 characters"
             />
-            <p className="icon-content">Passwords must be at least 6 characters</p>
+            <p className="icon-content">
+              Passwords must be at least 6 characters
+            </p>
           </label>
           <label className="sign-up-label">
             Re-enter Password
@@ -87,15 +93,23 @@ function SignupFormPage() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              required
             />
           </label>
-          <button className="sign-up-button" type="submit">{buttonText}</button>
+          <button className="sign-up-button" type="submit">
+            {buttonText}
+          </button>
         </form>
-        <p className="terms">By creating an account, you agree that Digizon's logo is beautiful and 
-          deserves to be printed and framed.</p>
+        <p className="terms">
+          By creating an account, you agree that Digizon's logo is beautiful and
+          deserves to be printed and framed.
+        </p>
         <div className="divider"></div>
-        <p className="options-tag">Already have an account? <Link className="a-link" to="/login">Sign In</Link></p>
+        <p className="options-tag">
+          Already have an account?{" "}
+          <Link className="a-link" to="/login">
+            Sign In
+          </Link>
+        </p>
       </div>
     </div>
   );
