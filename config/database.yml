@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: digizon_production
-  username: digizon
-  password: <%= ENV["DIGIZON_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

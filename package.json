@@ -1,11 +1,25 @@
 {
-  "dependencies": {
-    "react-redux": "^8.0.5",
-    "react-router-dom": "^5.3.4",
-    "redux": "^4.2.0",
-    "redux-thunk": "^2.4.2"
+  "name": "digizon",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "directories": {
+    "lib": "lib"
   },
-  "devDependencies": {
-    "redux-logger": "^3.0.6"
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briehn/digizon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briehn/digizon/issues"
+  },
+  "homepage": "https://github.com/briehn/digizon#readme",
+  "engines": {
+    "node": "16.x"
   }
 }
