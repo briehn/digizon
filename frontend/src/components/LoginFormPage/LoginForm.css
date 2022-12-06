@@ -53,7 +53,7 @@
   margin-top: 5px;
 }
 
-.sign-up-button {
+.login-button {
   margin-bottom: 26px;
   width: 100%;
   background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
@@ -69,6 +69,35 @@
   vertical-align: middle;
   height: 29px;
   border-radius: 2px;
+}
+
+.signup-button {
+  width: 100%;
+  height: 31px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: rgb(169, 169, 169);
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+  cursor: pointer;
+  width: 350px;
+}
+
+.signup-button:focus {
+  outline: 0;
+  border-color: #e77600;
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
+
+.login-button:hover {
+  border-color: #a88734 #9c7e31 #9c7e31;
+  background-image: linear-gradient(rgb(236, 213, 158), rgb(219, 178, 77));
+}
+
+.login-button:focus {
+  outline: 0;
+  border-color: #e77600;
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
 }
 
 .icon-content {

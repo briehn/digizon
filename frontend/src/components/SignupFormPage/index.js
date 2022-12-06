@@ -21,26 +21,84 @@ function SignupFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors([]);
-      return dispatch(sessionActions.signup({ email, name, password })).catch(
-        async (res) => {
-          let data;
-          try {
-            // .clone() essentially allows you to read the response body twice
-            data = await res.clone().json();
-          } catch {
-            data = await res.text(); // Will hit this case if the server is down
-          }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
+    setErrors([]);
+    dispatch(sessionActions.signup({ email, name, password })).catch(
+      async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
         }
-      );
+        // debugger;
+        if (
+          password.length >= 1 &&
+          (password !== confirmPassword || confirmPassword.length === 0)
+        ) {
+          // debugger;
+          if (data?.errors) {
+            data.errors.push("SecondPassword needs to be typed");
+          } else {
+            data.push("SecondPassword needs to be typed");
+          }
+        }
+
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+        console.log(errors);
+      }
+    );
+  };
+
+  const displayError = (input) => {
+    let messages = {
+      email: {
+        1: "Wrong or invalid email address. Please correct and try again.",
+        2: "Enter your email.",
+      },
+      name: {
+        1: "Enter your name",
+      },
+      password: {
+        1: "Minimum 6 characters required",
+      },
+      secondpassword: {
+        1: "Type your passsword again",
+      },
+    };
+    let result = "";
+    let type;
+    let field;
+    if (input === "secondpassword") {
+      console.log(`Input: ${input}`);
+      console.log(`Errors: ${errors}`);
     }
-    return setErrors([
-      "Confirm Password field must be the same as the Password field",
-    ]);
+    errors.forEach((error) => {
+      // debugger;
+      type = error.split(" ")[0].toLowerCase();
+      if (type === "secondpassword") {
+        console.log(`Type: ${type}`);
+      }
+      // console.log(`Type: ${type}, Input: ${input}, Error: ${error}`);
+      if (type === input) {
+        if (input === "password") {
+          let passwordContent = document.getElementById("password-content");
+          passwordContent.style.display = "none";
+        }
+        field = document.getElementById(`${type}`);
+        // debugger;
+        field.style.borderColor = "#d00";
+        field.style.boxShadow = "0 0 0 3px rgb(221 0 0 / 10%) inset";
+        if (type === "email" && email.length < 1) {
+          result = messages.email[2];
+        } else {
+          result = messages[input][1];
+        }
+      }
+    });
+    return <p>{result}</p>;
   };
 
   return (
@@ -51,49 +109,50 @@ function SignupFormPage() {
       <div className="center-form">
         <p className="createAccount">Create account</p>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {/* {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))} */}
-            {console.log(errors)}
-          </ul>
           <label className="sign-up-label">
             Your name
             <input
+              id="name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="First and last name"
             />
+            <div className="error">{displayError("name")}</div>
           </label>
-          <div className="error"> </div>
           <label className="sign-up-label">
             Email
             <input
+              id="email"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <div className="error">{displayError("email")}</div>
           </label>
           <label className="sign-up-label">
             Password
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="At least 6 characters"
             />
-            <p className="icon-content">
+            <p id="password-content" className="icon-content">
               Passwords must be at least 6 characters
             </p>
+            <div className="error">{displayError("password")}</div>
           </label>
           <label className="sign-up-label">
             Re-enter Password
             <input
+              id="secondpassword"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <div className="error">{displayError("secondpassword")}</div>
           </label>
           <button className="sign-up-button" type="submit">
             {buttonText}
