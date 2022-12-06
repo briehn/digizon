@@ -1,8 +1,87 @@
-.navBar {
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+.nav-bar {
+  background-color: #131921;
+  height: 100%;
+  max-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Amazon Ember", sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+}
+
+.nav-search {
+  width: 1100px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-logo {
+  margin-left: 5px;
+  object-fit: contain;
+  width: 125px;
+}
+
+.nav-search-field {
+  width: 1100px;
+  height: 30px;
+  padding: 5px 10px;
+  z-index: 1;
+  border-style: none;
+}
+
+.nav-search-button {
+  background: url("../../assets/search-button.png") no-repeat scroll 0 0
+    transparent;
+  background-color: #febd69;
+  background-size: 60%;
+  background-position: 65% 50%;
+  color: transparent;
+  border-radius: 5px;
+  position: relative;
+  right: 7px;
+  border-style: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-right {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.nav-right-container {
+  margin: auto 20px;
+  cursor: pointer;
+}
+
+.nav-right-container > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-right-container > span,
+.nav-right-container > a > span {
+  font-size: 12px;
+}
+
+.nav-right-container > p,
+.nav-right-container > a > p {
+  font-weight: bold;
+}
+
+.nav-right > ul {
   display: flex;
 }
 
-.navBar > li {
+.nav-right > ul > li {
   font-size: 18px;
   margin: 5px auto;
 }

@@ -1,135 +1,144 @@
-@import url('https://fonts.cdnfonts.com/css/amazon-ember');
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
 .center-section {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Amazon Ember', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Amazon Ember", sans-serif;
 }
 
 .center-form {
-    display: flex;
-    flex-direction: column;
-    width: 296px;
-    padding: 20px 25px;
-    border: 1px solid rgb(211, 211, 211);
-    border-radius: 4px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 296px;
+  padding: 20px 25px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 4px;
+}
 
 .center-form > form > label {
-    margin-bottom: 2px;
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    font-weight: 700;
-    padding-bottom: 2px;
-    padding-left: 2px;
-    margin-bottom: 14px;
-  }
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 700;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  margin-bottom: 14px;
+}
 
 .center-form > form > label > input {
-    border: 1px solid #a6a6a6;
-    border-top-color: #949494;    
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgb(255 255 255 / 50%);
-    outline: 0;
-    height: 25px;
-    padding: 3px 7px;
-    background-color: #fff;
+  border: 1px solid #a6a6a6;
+  border-top-color: #949494;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+  outline: 0;
+  height: 25px;
+  padding: 3px 7px;
+  background-color: #fff;
 }
 
 .center-form > form > label > input:focus {
-    outline: 0;
-    border-color: #e77600;
-    box-shadow: 0 0 0 2px rgb(250, 153, 17);
+  outline: 0;
+  border-color: #e77600;
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
 }
 
 .createAccount {
-    margin-bottom: 17px;
-    font-size: 28px;
+  margin-bottom: 17px;
+  font-size: 28px;
 }
 
 .login-label > input {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .login-button {
-    margin-bottom: 26px;
-    width: 100%;
-    background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
-    border-style: solid;
-    border-width: 1px;
-    cursor: pointer;
-    display: inline-block;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    height: 29px;
-    border-radius: 2px;
+  margin-bottom: 26px;
+  width: 100%;
+  background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  height: 29px;
+  border-radius: 2px;
 }
 
 .icon-content {
-    margin-bottom: 0;
-    text-align: left;
-    font-size: 12px;
-    line-height: 15px;
-    color: #2b2b2b;
-    font-weight: normal;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2b2b2b;
+  font-weight: normal;
 }
 
 .signup-logo {
-    object-fit: contain;
-    width: 300px;
+  object-fit: contain;
+  width: 300px;
+}
+
+.error {
+  border-color: #d00;
+  box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset;
 }
 
 .terms {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .a-link {
-    text-decoration: none;
-    color: #0066c0;
+  text-decoration: none;
+  color: #0066c0;
 }
 
-.divider {  
-    height: 24px;
-    background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
-    z-index: 0;
-    margin-top: 25px;
-    margin-bottom: -18px;
+.divider {
+  height: 24px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  z-index: 0;
+  margin-top: 25px;
+  margin-bottom: -18px;
 }
 
 .options-tag {
-    font-size: 12px;
-    margin-top: 20px;
+  font-size: 12px;
+  margin-top: 20px;
 }
 
 .divider:after {
-    display: block;
-    width: 100%;
-    height: 24px;
-    background-color: transparent;
-    background: linear-gradient(to right,#fff,rgba(255,255,255,0),#fff);
-    z-index: 1;
-    content: "";
+  display: block;
+  width: 100%;
+  height: 24px;
+  background-color: transparent;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+  content: "";
 }
 
 .signup-button {
-    width: 100%;
-    height: 31px;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: rgb(169, 169, 169);
-    border-radius: 3px;
-    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
-    cursor: pointer;
-    width: 350px;
-  }
+  width: 100%;
+  height: 31px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: rgb(169, 169, 169);
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+  cursor: pointer;
+  width: 350px;
+}
 
 .signup-button:hover {
-    background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 205, 205));
-    border-color: #a2a6ac #979aa1 #82858a;
-  }
+  background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 205, 205));
+  border-color: #a2a6ac #979aa1 #82858a;
+}
