@@ -26,7 +26,7 @@ function App() {
           <Navigation />
           <ProductIndex />
         </Route>
-        <Route path="/products/:product_id">
+        <Route path="/products/:productId">
           <Navigation />
           <ProductShow />
         </Route>
