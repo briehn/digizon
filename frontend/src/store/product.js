@@ -29,11 +29,25 @@ export const fetchProduct = (productId) => async (dispatch) => {
   dispatch(receiveProduct(data));
 };
 
+export const fetchProductsByCategory = (category) => async (dispatch) => {
+  const res = await fetch(
+    "/api/products?" + new URLSearchParams({ category }),
+    {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    }
+  );
+  const data = await res.json();
+  dispatch(receiveProducts(data));
+};
+
 const productsReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case RECEIVE_PRODUCTS:
-      return { ...newState, ...action.products };
+      return action.products;
     case RECIEVE_PRODUCT:
       newState[action.product.id] = action.product;
       return newState;

@@ -1,0 +1,22 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+.category-bar-container {
+  background-color: #232f3e;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.category-link {
+  text-decoration: none;
+  color: white;
+  font-family: "Amazon Ember", sans-serif;
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+}
+
+.category-link:hover {
+  border: 1px solid white;
+}

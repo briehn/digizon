@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import MainPage from "./components/MainPage";
 import ProductIndex from "./components/ProductIndexPage";
 import ProductShow from "./components/ProductShowPage";
+import CategoryBar from "./components/Category";
 import "./reset.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Navigation />
+          <CategoryBar />
           <MainPage />
         </Route>
         <Route path="/login">
@@ -24,11 +26,18 @@ function App() {
         </Route>
         <Route exact path="/products">
           <Navigation />
+          <CategoryBar />
           <ProductIndex />
         </Route>
         <Route path="/products/:productId">
           <Navigation />
+          <CategoryBar />
           <ProductShow />
+        </Route>
+        <Route exact path="/:category">
+          <Navigation />
+          <CategoryBar />
+          <ProductIndex />
         </Route>
       </Switch>
     </>
