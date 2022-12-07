@@ -86,8 +86,10 @@
 }
 
 .error {
-  border-color: #d00;
-  box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset;
+  font-size: 12px;
+  font-weight: normal;
+  color: #c40000;
+  margin-top: 5px;
 }
 
 .terms {
@@ -136,6 +138,24 @@
   background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
   cursor: pointer;
   width: 350px;
+}
+
+.sign-up-button {
+  margin-bottom: 26px;
+  width: 100%;
+  background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  height: 29px;
+  border-radius: 2px;
 }
 
 .signup-button:hover {

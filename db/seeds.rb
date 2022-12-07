@@ -22,6 +22,32 @@ ApplicationRecord.transaction do
       email: 'tai@digi.io', 
       password: 'password'
     )
+
+    puts "Creating test products..."
+
+    PRODUCTS = [
+      {
+      name: "Taichi Digivice",
+      description: "A basic Digivice created by the Agents, primarily to allow the user to digivolve their partners.",
+      category: "Digivice",
+      price: 24.99,
+      }, 
+      {
+      name: "D-3 Digivice",
+      description: "The upgraded version to the basic Digivice, created by a group of divine Digimon.",
+      category: "Digivice",
+      price: 34.99,
+      }, 
+      {
+      name: "Random Digitama",
+      description: "Here's your chance to obtain a Digmon with our Random Digitama. Our Digitama come in a variety of colors, shapes and sizes!",
+      category: "Digitama",
+      price: 56.49,
+      }
+    ]
+    PRODUCTS.each do |product|
+      Product.create!(product)
+    end
   
     puts "Done!"
   end

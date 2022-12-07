@@ -1,0 +1,17 @@
+.main-container {
+  background: #eaeded;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-banner {
+  position: relative;
+  width: 80%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 50px gold;
+}
