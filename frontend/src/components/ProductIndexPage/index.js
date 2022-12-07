@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, getProducts } from "../../store/product";
+import ProductItem from "./ProductItem";
+
+import "./ProductIndex.css";
 
 function ProductIndexPage() {
   const dispatch = useDispatch();
@@ -11,15 +14,14 @@ function ProductIndexPage() {
   }, [dispatch]);
 
   const listProducts = products.map((product) => (
-    <ul>
-      <li>{product.name}</li>
-      <li>{product.description}</li>
-      <li>{product.price}</li>
-      <li>{product.category}</li>
-    </ul>
+    <ProductItem key={product.id} product={product} />
   ));
 
-  return <div className="display-container">{listProducts}</div>;
+  return (
+    <div className="display-container">
+      <div className="product-item-container">{listProducts}</div>
+    </div>
+  );
 }
 
 export default ProductIndexPage;
