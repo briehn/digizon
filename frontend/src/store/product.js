@@ -49,6 +49,7 @@ const productsReducer = (state = {}, action) => {
     case RECEIVE_PRODUCTS:
       return action.products;
     case RECIEVE_PRODUCT:
+      // debugger;
       newState[action.product.id] = action.product;
       return newState;
     default:
