@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { fetchProductsByCategory } from "../../store/product";
 
 function CategoryBar() {
-  const categories = ["Digitama", "Digivice", "Accessories"];
+  const categories = ["Digitama", "Crests", "Digivice", "Accessories"];
   const catLinks = categories.map((category) => (
     <Link className="category-link" key={category} to={`/${category}`}>
       {category}
