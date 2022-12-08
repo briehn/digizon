@@ -9,13 +9,13 @@ function ProductItem({ product }) {
   let decimal = priceStr[1] ? priceStr[1] : "00";
 
   return (
-    <div className="product-item-container">
+    <div className="product-item-cell">
       <div className="product-item-base">
         <div className="product-overlay">
           <Link to={`/products/${id}`}>
             <img
               className="product-item-image"
-              src="https://m.media-amazon.com/images/I/51YrNSJTbjL._AC_UL320_.jpg"
+              src={product.photoUrl}
               alt="product"
             ></img>
           </Link>

@@ -1,4 +1,9 @@
 .display-container {
-  margin-top: 25px;
-  margin-left: 15%;
+  margin-top: 3%;
+  margin-left: 20%;
+}
+
+.product-item-container {
+  display: flex;
+  flex-wrap: wrap;
 }

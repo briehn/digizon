@@ -7,7 +7,7 @@ function ProductShowPage() {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const product = useSelector(getProduct(productId)) || {};
-
+  console.log(product)
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
   }, [dispatch, productId]);
@@ -15,6 +15,7 @@ function ProductShowPage() {
   return (
     <div className="display-container">
       <ul>
+        <img src={product.photoUrl} alt="product-display"></img>
         <li>{product.name}</li>
         <li>{product.description}</li>
         <li>{product.price}</li>
