@@ -78,6 +78,11 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+.price-label,
+.price-amt {
+  display: none;
+}
+
 .count-select {
   margin-top: 10px;
   margin-bottom: 10px;

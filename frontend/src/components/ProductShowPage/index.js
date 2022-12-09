@@ -96,6 +96,11 @@ function ProductShowPage() {
       <div className="center-container">
         <span className="product-name">{product.name}</span>
         <hr />
+        <div className="product-price">
+          <span className="price-symbol">$</span>
+          <span className="price-main-price">{wholeNum}</span>
+          <span className="price-symbol">{decimal}</span>
+        </div>
         <table className="price-table">
           <tbody>
             <tr className="price-table-row1">
