@@ -1,3 +1,4 @@
+import csrfFetch from "./csrf.js"
 export const RECEIVE_PRODUCTS = "products/RECEIVE_PRODUCTS";
 export const RECIEVE_PRODUCT = "products/RECIEVE_PRODUCT";
 
@@ -18,19 +19,19 @@ export const getProduct = (productId) => (state) =>
   state.products ? state.products[productId] : null;
 
 export const fetchProducts = () => async (dispatch) => {
-  const res = await fetch("/api/products");
+  const res = await csrfFetch("/api/products");
   const data = await res.json();
   dispatch(receiveProducts(data));
 };
 
 export const fetchProduct = (productId) => async (dispatch) => {
-  const res = await fetch(`/api/products/${productId}`);
+  const res = await csrfFetch(`/api/products/${productId}`);
   const data = await res.json();
   dispatch(receiveProduct(data));
 };
 
 export const fetchProductsByCategory = (category) => async (dispatch) => {
-  const res = await fetch(
+  const res = await csrfFetch(
     "/api/products?" + new URLSearchParams({ category }),
     {
       method: "GET",
