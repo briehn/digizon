@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import productsReducer, { fetchProduct, getProduct } from "../../store/product";
 import "./ProductShow.css";
+import prime from "../../assets/prime.png";
+import { Link } from "react-router-dom";
 
 function ProductShowPage() {
   const dispatch = useDispatch();
@@ -101,6 +103,14 @@ function ProductShowPage() {
           <span className="price-main-price">{wholeNum}</span>
           <span className="price-symbol">{decimal}</span>
         </div>
+        <div>
+          <img src={prime} alt="prime-logo" className="prime-logo"></img>
+          <span className="prime-label">One-Day</span>
+        <div className="return-label">FREE Returns</div>
+        <div className="points-back"><span>Get 0% back</span> on the amount charged to your fictitious Digizon Prime Rewards Card.
+        <div>May be available at a lower price from <Link className="product-linked-link" to={{ pathname: "https://www.linkedin.com/in/briehnyu/" }} target="_blank">the developer</Link> of this website if you hire him.</div></div>
+        </div>
+        {/* </div>
         <table className="price-table">
           <tbody>
             <tr className="price-table-row1">
@@ -108,7 +118,7 @@ function ProductShowPage() {
               <td className="price-amt">${product.price}</td>
             </tr>
           </tbody>
-        </table>
+        </table> */}
         <hr />
         <div className="center-bottom-container">
           <div className="about-label">About this item:</div>
@@ -122,6 +132,10 @@ function ProductShowPage() {
           <span className="price-symbol">$</span>
           <span className="price-main-price">{wholeNum}</span>
           <span className="price-symbol">{decimal}</span>
+        </div>
+        <div>
+        <img src={prime} alt="prime-logo" className="prime-logo"></img>
+        <span className="prime-label">One-Day</span>
         </div>
         <div className="return-label">FREE Returns</div>
         <div className="delivery-label">
@@ -151,7 +165,18 @@ function ProductShowPage() {
             value="Add to Cart"
           ></input>
         </form>
+        <div className="secure-label">Secure transaction</div>
+        <div className="misc-label-ship">
+          <div className="misc-ship">Ships from</div>
+        <span className="misc-link">Digizon.com</span>
+        </div>
+        <div className="misc-label-sold">
+          <div className="misc-sold">Sold by</div>
+          <span className="misc-link">Digizon.com</span>
+        </div>
+        <div className="policy-label">Return policy: <span className="returnable-label">You break, you buy.</span></div>
       </div>
+      
     </div>
   );
 }
