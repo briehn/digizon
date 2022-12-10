@@ -66,11 +66,11 @@ function Navigation() {
           <span>Returns</span>
           <p>& Orders</p>
         </div>
-        <div className="nav-right-container">
-          <Link to="/cart">
-          <p>Cart</p>
-          </Link>
-        </div>
+        <Link className="cart-link" to="/cart">
+          <div className="nav-right-container">
+            <p>Cart</p>
+          </div>
+        </Link>
       </div>
     </div>
   );

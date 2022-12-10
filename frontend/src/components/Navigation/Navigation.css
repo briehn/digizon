@@ -70,12 +70,12 @@
   justify-content: center;
 }
 
-.nav-right-container:last-child {
+.cart-link {
   display: flex;
   align-items: center;
 }
 
-.nav-right-container {
+.nav-right-container{
   margin: auto 10px;
   cursor: pointer;
   padding: 10px 15px;
@@ -89,7 +89,7 @@
   border: 1px solid white;
 }
 
-.nav-right-container > a {
+a {
   text-decoration: none;
   color: inherit;
 }

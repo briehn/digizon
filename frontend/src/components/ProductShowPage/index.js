@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import productsReducer, { fetchProduct, getProduct } from "../../store/product";
+import { useParams, useHistory } from "react-router-dom";
+import { fetchProduct, getProduct } from "../../store/product";
+import { addToCart } from "../../store/cart";
 import "./ProductShow.css";
 import prime from "../../assets/prime.png";
 import { Link } from "react-router-dom";
 
 function ProductShowPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { productId } = useParams();
   const product = useSelector(getProduct(productId)) || {};
   const [count, setCount] = useState(1);
+  const userId = useSelector((state) => state.session.user?.id);
   console.log(product);
   useEffect(() => {
     dispatch(fetchProduct(productId));
@@ -69,6 +72,16 @@ function ProductShowPage() {
       );
     }
   });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userId) {
+      dispatch(addToCart(product.id, count))
+    } else {
+      history.push("/login");
+    }
+    setCount(1);
+  }
 
   const deliveryDate = (speed = "norm") => {
     const date = new Date();
@@ -147,7 +160,7 @@ function ProductShowPage() {
           within <span className="fast-delivery-hour">{deliveryTime()}</span>
         </div>
         <div className="stock-label">In Stock.</div>
-        <form className="product-form">
+        <form className="product-form" onSubmit={handleSubmit}>
           <div className="select-wrap">
             <label className="box-shadow">
               <select

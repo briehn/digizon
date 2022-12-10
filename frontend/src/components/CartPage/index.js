@@ -20,7 +20,7 @@ function CartPage() {
 
     useEffect(() => {
         dispatch(fetchCart())
-    }, [])
+    }, [dispatch])
 
 
     return (

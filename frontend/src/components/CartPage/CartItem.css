@@ -13,6 +13,8 @@ div {
 .cart-item-image-container {
     margin-left: 20px;
     width: 15%;
+    max-height: 5%;
+    max-height: 25%;
     text-align: center;
 }
 
@@ -25,7 +27,7 @@ div {
 }
 
 .cart-item-image {
-    width: 100%;
+    width: 85%;
 }
 
 .item-name-container {
