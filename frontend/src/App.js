@@ -7,6 +7,7 @@ import MainPage from "./components/MainPage";
 import ProductIndex from "./components/ProductIndexPage";
 import ProductShow from "./components/ProductShowPage";
 import CategoryBar from "./components/Category";
+import CartPage from "./components/CartPage";
 import "./reset.css";
 
 function App() {
@@ -23,6 +24,11 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignupFormPage />
+        </Route>
+        <Route path="/cart">
+          <Navigation />
+          <CategoryBar/>
+          <CartPage />
         </Route>
         <Route exact path="/products">
           <Navigation />

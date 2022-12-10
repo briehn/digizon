@@ -8,7 +8,6 @@ export const receiveCart = (cart) => ({
     cart
 });
 
-
 //not used?
 export const deleteCart = (cart) => ({
     type: DELETE_CART,
@@ -18,7 +17,9 @@ export const deleteCart = (cart) => ({
 export const emptyCart = () => ({
     type: CLEAR_CART,
 });
-  
+
+export const getCart = (state) =>
+  state.carts.cart ? Object.values(state.carts.cart) : [];
 
 export const fetchCart = (userId) => async (dispatch) => {
     const res = await csrfFetch(`/api/carts/${userId}`);

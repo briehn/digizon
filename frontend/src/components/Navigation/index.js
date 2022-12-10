@@ -67,7 +67,9 @@ function Navigation() {
           <p>& Orders</p>
         </div>
         <div className="nav-right-container">
+          <Link to="/cart">
           <p>Cart</p>
+          </Link>
         </div>
       </div>
     </div>
