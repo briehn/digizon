@@ -17,7 +17,7 @@ function CartPage() {
         <CartItem key={product.id} product={product} />
         <hr/>
         </>
-    ));  
+    ));
     
     useEffect(() => {
         calculateSubTotal();
@@ -54,7 +54,7 @@ function CartPage() {
                     {listCart}
                 </div>
                 <div className="sub-total-container">
-                    Subtotal ({calculateCartSize()} {cart.length > 1 ? "items" : "item"}):&nbsp; 
+                    Subtotal ({calculateCartSize()} {calculateCartSize() > 1 ? "items" : "item"}):&nbsp; 
                     <span className="sub-total-amt">${subTotal}</span>
                 </div>
             </div>
