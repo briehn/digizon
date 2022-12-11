@@ -62,6 +62,32 @@ div {
     word-spacing: 3px;
 }
 
+.quantity-section {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    margin-right: 10px!important;
+}
+
+.cart-item-delete-button {
+    background: 0 0;
+    border: 0;
+    color: #007185;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.cart-item-delete-container {
+    border-left: 1px solid #cdcccc;
+    padding: 0px 7px;
+}
+
+.quantity-section > div {
+    margin: 0px 5px;
+}
+
 .cart-item-image {
     width: 85%;
 }

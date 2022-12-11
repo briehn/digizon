@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import "./CartItem.css";
 import { useEffect, useState } from "react";
-import { fetchCart, updateItemCount } from "../../store/cart";
+import { deleteFromCart, updateItemCount } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
 import ProductShowPage from "../ProductShowPage";
 function CartItem({product}) {
     const {id, name, price} = product;
     const [count, setCount] = useState(product.quantity);
+    const userId = useSelector((state) => state.session.user?.id);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -60,19 +61,33 @@ function CartItem({product}) {
                         </label>
                     </form>
                     <div className="quantity-section">
-                        <label className="box-shadow">
-                            <select
-                                className="cart-count-select"
-                                value={`Qty: ${count}`}
-                                onChange={(e) => setCount(e.target.value)}
+                        <div className="quantity">
+                            <label className="box-shadow">
+                                <select
+                                    className="cart-count-select"
+                                    value={`Qty: ${count}`}
+                                    onChange={(e) => setCount(e.target.value)}
+                                >
+                                    {countOptions}
+                                </select>
+                            </label>
+                        </div>
+                        <div className="cart-item-delete-container">
+                        <button
+                              className="cart-item-delete-button"
+                              onClick={(e) => {
+                                dispatch(
+                                  deleteFromCart(userId, id)
+                                );
+                              }}
                             >
-                                {countOptions}
-                            </select>
-                        </label>
+                              Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="cart-item-price">${price}</div>
+            <div className="cart-item-price">${price.toFixed(2)}</div>
         </div>
     )
 }
