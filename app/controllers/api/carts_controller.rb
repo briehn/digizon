@@ -18,6 +18,15 @@ class Api::CartsController < ApplicationController
         render :show
     end
 
+    def update_count
+        @user = current_user
+        @cart = Cart.find_by(user_id: @user.id, product_id: cart_params[:product_id])
+        if @cart
+            @cart = @cart.update(quantity: cart_params[:quantity])
+        end
+        render :show
+    end
+
     def destroy
         @user = current_user
         @cart = Cart.find_by(user_id: @user.id, product_id: params[:product_id])

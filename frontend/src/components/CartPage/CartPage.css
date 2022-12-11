@@ -2,6 +2,7 @@
 
 .cart-label {
     font-size: 28px;
+    padding-bottom: 10px;
 }
 
 .cart-container {
@@ -11,7 +12,7 @@
     width: 70%;
     max-width: 80%;
     background-color: white;
-    padding: 25px 15px;
+    padding: 25px 25px;
     margin-bottom: 5%;
 }
 
@@ -20,4 +21,16 @@
     height: 100%;
     width: 100%;
     padding: 1px;
+}
+
+.cart-form, .form-link {
+    font-size: 12px;
+}
+
+.form-link {
+    color: #007185;
+}
+
+.cart-eligible {
+    margin-bottom: 5px;
 }

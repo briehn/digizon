@@ -39,6 +39,18 @@ export const addToCart = (product_id, quantity) => async (dispatch) => {
     dispatch(receiveCart(data));
 }
 
+export const updateItemCount = (product_id, quantity) => async (dispatch) => {
+    const res = await csrfFetch("/api/update_count", {
+        method: "PATCH",
+        body: JSON.stringify({cart: {product_id, quantity}}),
+        headers: {
+            "content-type": "application/json",
+        }
+    });
+    const data = await res.json();
+    dispatch(receiveCart(data));
+}
+
 export const deleteFromCart = (user_id, product_id) => async (dispatch) => {
     const res = await csrfFetch(`/api/carts/${user_id}`, {
         method: "DELETE",
