@@ -14,12 +14,12 @@ function Reviews({ productId }) {
 
   const listReviews = reviews.map((review) => (
     <>
-      <div>{review.user}</div>
+      <div>{review.user.name}</div>
       <div>{review.body}</div>
     </>
   ));
 
-  return <div>"test"</div>;
+  return <div>{listReviews}</div>;
 }
 
 export default Reviews;

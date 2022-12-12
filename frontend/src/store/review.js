@@ -19,13 +19,8 @@ export const addReviews = (reviews) => ({
   reviews,
 });
 
-export const getReviews = (productId) => (state) =>
-  Object.values(state.reviews)
-    .filter((review) => review.productId === productId)
-    .map((review) => ({
-      ...review,
-      author: state.users[review.userId]?.username,
-    }));
+export const getReviews = (state) =>
+  state.reviews ? Object.values(state.reviews) : [];
 
 export const getReview = (reviewId) => (state) =>
   state.reviews ? state.reviews[reviewId] : null;
@@ -40,7 +35,6 @@ export const createReview = (review) => async (dispatch) => {
   });
   const data = await res.json();
   dispatch(addReview(data.review));
-  dispatch(addUser(data.user));
 };
 
 export const fetchReviewsByProduct = (product_id) => async (dispatch) => {
@@ -53,7 +47,6 @@ export const fetchReview = (product_id, user_id) => async (dispatch) => {
   const res = await csrfFetch(`/api/products/${product_id}/reviews/${user_id}`);
   const data = await res.json();
   dispatch(addReview(data.review));
-  dispatch(addUser(data.user));
 };
 
 export const editReview = (id, body, rating) => async (dispatch) => {

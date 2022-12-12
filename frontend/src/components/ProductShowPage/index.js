@@ -203,7 +203,7 @@ function ProductShowPage() {
       </div>
       <div className="review-section-container">
         <hr />
-        {/* <Reviews productId={productId} /> */}
+        <Reviews productId={productId} />
       </div>
     </div>
   );
