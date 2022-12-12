@@ -14,7 +14,6 @@ function ProductShowPage() {
   const product = useSelector(getProduct(productId)) || {};
   const [count, setCount] = useState(1);
   const userId = useSelector((state) => state.session.user?.id);
-  console.log(product);
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
@@ -76,12 +75,12 @@ function ProductShowPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (userId) {
-      dispatch(addToCart(product.id, count))
+      dispatch(addToCart(product.id, count));
     } else {
       history.push("/login");
     }
     setCount(1);
-  }
+  };
 
   const deliveryDate = (speed = "norm") => {
     const date = new Date();
@@ -119,9 +118,22 @@ function ProductShowPage() {
         <div>
           <img src={prime} alt="prime-logo" className="prime-logo"></img>
           <span className="prime-label">One-Day</span>
-        <div className="return-label">FREE Returns</div>
-        <div className="points-back"><span>Get 0% back</span> on the amount charged to your fictitious Digizon Prime Rewards Card.
-        <div>May be available at a lower price from <Link className="product-linked-link" to={{ pathname: "https://www.linkedin.com/in/briehnyu/" }} target="_blank">the developer</Link> of this website if you hire him.</div></div>
+          <div className="return-label">FREE Returns</div>
+          <div className="points-back">
+            <span>Get 0% back</span> on the amount charged to your fictitious
+            Digizon Prime Rewards Card.
+            <div>
+              May be available at a lower price from{" "}
+              <Link
+                className="product-linked-link"
+                to={{ pathname: "https://www.linkedin.com/in/briehnyu/" }}
+                target="_blank"
+              >
+                the developer
+              </Link>{" "}
+              of this website if you hire him.
+            </div>
+          </div>
         </div>
         {/* </div>
         <table className="price-table">
@@ -147,8 +159,8 @@ function ProductShowPage() {
           <span className="price-symbol">{decimal}</span>
         </div>
         <div>
-        <img src={prime} alt="prime-logo" className="prime-logo"></img>
-        <span className="prime-label">One-Day</span>
+          <img src={prime} alt="prime-logo" className="prime-logo"></img>
+          <span className="prime-label">One-Day</span>
         </div>
         <div className="return-label">FREE Returns</div>
         <div className="delivery-label">
@@ -181,15 +193,17 @@ function ProductShowPage() {
         <div className="secure-label">Secure transaction</div>
         <div className="misc-label-ship">
           <div className="misc-ship">Ships from</div>
-        <span className="misc-link">Digizon.com</span>
+          <span className="misc-link">Digizon.com</span>
         </div>
         <div className="misc-label-sold">
           <div className="misc-sold">Sold by</div>
           <span className="misc-link">Digizon.com</span>
         </div>
-        <div className="policy-label">Return policy: <span className="returnable-label">You break, you buy.</span></div>
+        <div className="policy-label">
+          Return policy:{" "}
+          <span className="returnable-label">You break, you buy.</span>
+        </div>
       </div>
-      
     </div>
   );
 }

@@ -13,7 +13,7 @@
   font-family: "Amazon Ember", sans-serif;
   position: relative;
   z-index: 1;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .nav-left {
@@ -75,18 +75,28 @@
   align-items: center;
 }
 
-.nav-right-container{
+.nav-right-container,
+.cart-link {
   margin: auto 10px;
   cursor: pointer;
   padding: 10px 15px;
   border: 1px solid transparent;
   height: 50%;
   max-height: 70px;
-  inline-size: max-content;
 }
 
-.nav-right-container:hover {
+.cart-link > .nav-right-container {
+  width: inherit;
+  height: inherit;
+}
+
+.nav-right-container:hover,
+.cart-link:hover {
   border: 1px solid white;
+}
+
+.nav-right-container:last-child:hover {
+  border: 1px solid transparent !important;
 }
 
 a {

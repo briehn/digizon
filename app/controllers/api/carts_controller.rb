@@ -35,6 +35,13 @@ class Api::CartsController < ApplicationController
         render :show
     end
 
+    def clear_cart
+        @user = current_user
+        @cart = Cart.where(user_id: @user.id).destroy_all
+
+        render :show
+    end
+
     private
     def cart_params
         params.require(:cart).permit(:user_id, :product_id, :quantity)

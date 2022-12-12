@@ -1,7 +1,7 @@
 // frontend/src/components/Navigation/index.js
 
 import React, { useState } from "react";
-import { NavLink, Redirect, Link } from "react-router-dom";
+import { NavLink, Redirect, Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./Navigation.css";
 import logo from "../../assets/logo.png";
@@ -10,6 +10,7 @@ import * as sessionActions from "../../store/session";
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   let display;
   let login;
   if (sessionUser) {
@@ -39,6 +40,7 @@ function Navigation() {
 
   const logout = () => {
     dispatch(sessionActions.logout());
+    history.push("/");
   };
 
   return (

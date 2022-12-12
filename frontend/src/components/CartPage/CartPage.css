@@ -1,56 +1,90 @@
 @import url("https://fonts.cdnfonts.com/css/amazon-ember");
 
 .cart-label {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .cart-container {
-    font-family: "Amazon Ember", sans-serif;
-    margin-left: 7%;
-    margin-top: 2%;
-    width: 70%;
-    max-width: 80%;
-    background-color: white;
-    padding: 25px 25px;
-    margin-bottom: 5%;
-    padding-bottom: 3%;
+  margin-top: 2%;
+  width: 60%;
+  max-width: 80%;
+  background-color: white;
+  padding: 25px 25px;
+  margin-bottom: 5%;
+  padding-bottom: 3%;
+}
+
+.checkout-container {
+  margin-top: 2%;
+  background-color: white;
+  height: 78px;
+  padding: 20px 20px 15px 20px;
+  width: 300px;
+}
+
+.checkout-container > .sub-total-container {
+  float: none;
 }
 
 .cart-background {
-    background: #EAEDED;
-    height: 100%;
-    width: 100%;
-    padding: 1px;
+  font-family: "Amazon Ember", sans-serif;
+  background: #eaeded;
+  height: 100%;
+  width: 100%;
+  padding: 1px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.cart-form, .form-link {
-    font-size: 12px;
+.cart-form,
+.form-link {
+  font-size: 12px;
 }
 
 .form-link {
-    color: #007185;
+  color: #007185;
 }
 
 .cart-eligible {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .sub-total-container {
-    float: right;
-    font-size: 18px;
+  float: right;
+  font-size: 18px;
 }
 
 .sub-total-amt {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .cart-price-label {
-    text-align: end;
-    font-size: 14px;
-    color: #565959;
-    margin-right: 3px;
+  text-align: end;
+  font-size: 14px;
+  color: #565959;
+  margin-right: 3px;
 }
 
 .top-border {
-    margin-top: 5px;
+  margin-top: 5px;
+}
+
+form > input.checkout-btn {
+  margin-top: 15px;
+  background: #ffd814;
+  border-color: #fcd200;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  padding: 7px;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.checkout-btn:hover {
+  background: #f7ca00;
+  border-color: #f2c200;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
 }

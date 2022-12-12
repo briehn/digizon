@@ -55,7 +55,7 @@
 .product-linked-link:hover {
   text-decoration: underline;
   cursor: pointer;
-  color: #C7511F;
+  color: #c7511f;
 }
 
 .points-back > span {
@@ -81,7 +81,8 @@
   margin-bottom: 10px;
 }
 
-.return-label, .returnable-label {
+.return-label,
+.returnable-label {
   color: #007185;
 }
 
@@ -135,9 +136,9 @@ input[type="submit"] {
 }
 
 .count-select > option {
-  border-color: #D5D9D9;
-  background-color: #EDFDFF;
-  border-left-color: #007185
+  border-color: #d5d9d9;
+  background-color: #edfdff;
+  border-left-color: #007185;
 }
 .product-form {
   display: flex;
@@ -172,7 +173,8 @@ form > input.product-add-btn {
   margin-bottom: 10px;
 }
 
-.misc-label-ship, .misc-label-sold {
+.misc-label-ship,
+.misc-label-sold {
   font-size: 12px;
   display: flex;
   justify-content: space-between;
