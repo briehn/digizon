@@ -25,6 +25,24 @@ ApplicationRecord.transaction do
       password: 'password'
     )
 
+    User.create!(
+      name: 'Takato Matsuki',
+      email: 'takato@digi.io',
+      password: 'password'
+    )
+
+    User.create!(
+      name: 'Takuya Kanbara',
+      email: 'takuya@digi.io',
+      password: 'password'
+    )
+
+    User.create!(
+      name: 'Marcus Damon',
+      email: 'marcus@digi.io',
+      password: 'password'
+    )
+
     puts "Creating test products..."
 
     PRODUCTS = [
@@ -273,6 +291,29 @@ ApplicationRecord.transaction do
       # file = URI.open(product[:file])
       # obj.photo.attach(io: file, filename: product[:fileName])
     end
+
+    puts "Creating reviews"
+
+    Review.create!(
+      user_id: 1,
+      product_id: 1,
+      body: "Hey, this is mine!",
+      rating: 5
+      )
+
+    Review.create!(
+      user_id: 2,
+      product_id: 1,
+      body: "What is this?",
+      rating: 2
+    )
+
+    Review.create!(
+      user_id: 4,
+      product_id: 1,
+      body: "This is a knockoff data link device!",
+      rating: 1
+    )
   
     puts "Done!"
   end

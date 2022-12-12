@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf.js"
+import csrfFetch from "./csrf.js";
 export const RECEIVE_PRODUCTS = "products/RECEIVE_PRODUCTS";
 export const RECIEVE_PRODUCT = "products/RECIEVE_PRODUCT";
 
@@ -50,7 +50,6 @@ const productsReducer = (state = {}, action) => {
     case RECEIVE_PRODUCTS:
       return action.products;
     case RECIEVE_PRODUCT:
-      // debugger;
       newState[action.product.id] = action.product;
       return newState;
     default:

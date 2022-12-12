@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: :create
-    resources :products, only: [:show, :index]
+    resources :products, only: [:show, :index] do 
+      resources :reviews, only: [:index, :show]
+    end
     resource :session, only: [:show, :create, :destroy]
     resources :carts, only: [:show, :create, :destroy]
+    resources :reviews, only: [:update, :create, :destroy]
     patch :update_count, controller: "carts"
     delete :clear_cart, controller: "carts"
   end
