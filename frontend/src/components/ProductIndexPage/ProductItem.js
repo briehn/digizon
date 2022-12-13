@@ -13,12 +13,12 @@ function ProductItem({ product }) {
       <div className="product-item-base">
         <div className="product-overlay">
           <Link to={`/products/${id}`}>
-`            <img
+            <img
               className="product-item-image"
               // src={product.photoUrl}
               src="https://m.media-amazon.com/images/I/71sYQsPerwL._AC_SX466_.jpg"
               alt="product"
-            ></img>`
+            ></img>
           </Link>
         </div>
         <Link className="product-item-name product-link" to={`/products/${id}`}>

@@ -8,6 +8,7 @@ import ProductIndex from "./components/ProductIndexPage";
 import ProductShow from "./components/ProductShowPage";
 import CategoryBar from "./components/Category";
 import CartPage from "./components/CartPage";
+import Footer from "./components/Footer";
 import "./reset.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Navigation />
           <CategoryBar />
           <MainPage />
+          <Footer />
         </Route>
         <Route path="/login">
           <LoginFormPage />
@@ -27,23 +29,27 @@ function App() {
         </Route>
         <Route path="/carts">
           <Navigation />
-          <CategoryBar/>
+          <CategoryBar />
           <CartPage />
+          <Footer />
         </Route>
         <Route exact path="/products">
           <Navigation />
           <CategoryBar />
           <ProductIndex />
+          <Footer />
         </Route>
         <Route path="/products/:productId">
           <Navigation />
           <CategoryBar />
           <ProductShow />
+          <Footer />
         </Route>
         <Route exact path="/:category">
           <Navigation />
           <CategoryBar />
           <ProductIndex />
+          <Footer />
         </Route>
       </Switch>
     </>

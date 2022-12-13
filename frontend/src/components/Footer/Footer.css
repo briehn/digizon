@@ -1,0 +1,28 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+.footer-container {
+  position: relative;
+  height: 100%;
+  background-color: #364a60;
+  color: white;
+  font-family: "Amazon Ember", sans-serif;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  user-select: none;
+}
+
+.copyright-note {
+  font-size: 12px;
+}
+
+.link-container {
+  height: 40px;
+  margin: 10px 0;
+}
+
+.git-icon,
+.linkedin-icon {
+  height: 100%;
+  margin: 0px 10px;
+}

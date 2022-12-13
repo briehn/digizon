@@ -58,7 +58,7 @@ function Reviews({ productId }) {
     <div className="product-review">
       <div className="review-name">{review.user.name}</div>
       <div className="review-rating">
-        {review.rating}{" "}
+        {review.rating} Star Rating{" "}
         <span className="review-heading">{review.headline}</span>
       </div>
       <div className="review-location-label">
@@ -69,18 +69,21 @@ function Reviews({ productId }) {
   ));
 
   return (
-    <div className="main-review-container">
-      <div className="product-ratings-container">
-        <div className="product-ratings-label">Customer Reviews</div>
-        <div className="product-ratings-score">{rating} out of 5</div>
-      </div>
-      <div className="product-reviews-container">
-        <div className="product-review-label">
-          Top reviews from the United States
+    <>
+      <hr />
+      <div className="main-review-container">
+        <div className="product-ratings-container">
+          <div className="product-ratings-label">Customer Reviews</div>
+          <div className="product-ratings-score">{rating} out of 5</div>
         </div>
-        {listReviews}
+        <div className="product-reviews-container">
+          <div className="product-review-label">
+            Top reviews from the United States
+          </div>
+          {listReviews}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

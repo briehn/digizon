@@ -124,6 +124,10 @@ input[type="submit"] {
   display: none;
 }
 
+.review-section-container {
+  margin-bottom: 15px;
+}
+
 .count-select {
   margin-top: 10px;
   margin-bottom: 10px;

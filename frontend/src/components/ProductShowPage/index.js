@@ -205,7 +205,6 @@ function ProductShowPage() {
         </div>
       </div>
       <div className="review-section-container">
-        <hr />
         <Reviews productId={productId} />
       </div>
     </div>

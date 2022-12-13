@@ -13,11 +13,19 @@
   font-family: "Amazon Ember", sans-serif;
   position: relative;
   z-index: 1;
+  white-space: nowrap;
 }
 
 .nav-left {
   width: 25%;
   min-width: 300px;
+  /* text-align: center; */
+}
+
+.animated-digimon {
+  margin-right: 10px;
+  height: 50%;
+  transform: scaleX(-1);
 }
 
 .nav-center {

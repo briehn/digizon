@@ -49,6 +49,31 @@ function Navigation() {
         <Link to="/" className="nav-logo">
           <img src={logo} alt="icon-logo" className="nav-logo"></img>
         </Link>
+        <img
+          className="animated-digimon"
+          src="https://thumbs.gfycat.com/OilyOrganicBoubou-size_restricted.gif"
+          alt="guilmon"
+        ></img>
+        <img
+          className="animated-digimon"
+          src="https://thumbs.gfycat.com/OilyOrganicBoubou-size_restricted.gif"
+          alt="guilmon"
+        ></img>
+        <img
+          className="animated-digimon"
+          src="https://thumbs.gfycat.com/OilyOrganicBoubou-size_restricted.gif"
+          alt="guilmon"
+        ></img>
+        <img
+          className="animated-digimon"
+          src="https://thumbs.gfycat.com/OilyOrganicBoubou-size_restricted.gif"
+          alt="guilmon"
+        ></img>
+        <img
+          className="animated-digimon"
+          src="https://thumbs.gfycat.com/OilyOrganicBoubou-size_restricted.gif"
+          alt="guilmon"
+        ></img>
       </div>
       <div className="nav-center">
         <form className="nav-search">
