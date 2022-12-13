@@ -297,6 +297,7 @@ ApplicationRecord.transaction do
     Review.create!(
       user_id: 1,
       product_id: 1,
+      headline: "Amazing product!",
       body: "Hey, this is mine!",
       rating: 5
       )
@@ -304,6 +305,7 @@ ApplicationRecord.transaction do
     Review.create!(
       user_id: 2,
       product_id: 1,
+      headline: "???",
       body: "What is this?",
       rating: 2
     )
@@ -311,6 +313,7 @@ ApplicationRecord.transaction do
     Review.create!(
       user_id: 4,
       product_id: 1,
+      headline: "Ridiculous",
       body: "This is a knockoff data link device!",
       rating: 1
     )

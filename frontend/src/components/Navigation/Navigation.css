@@ -13,7 +13,6 @@
   font-family: "Amazon Ember", sans-serif;
   position: relative;
   z-index: 1;
-  /* width: 100%; */
 }
 
 .nav-left {
@@ -83,6 +82,8 @@
   border: 1px solid transparent;
   height: 50%;
   max-height: 70px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .cart-link > .nav-right-container {
@@ -122,3 +123,9 @@ a {
   font-size: 18px;
   margin: 5px auto;
 }
+
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */

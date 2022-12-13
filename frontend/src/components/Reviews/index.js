@@ -12,14 +12,35 @@ function Reviews({ productId }) {
     dispatch(fetchReviewsByProduct(productId));
   }, [dispatch, productId]);
 
+  console.log(reviews);
+  console.log(reviews.length);
+
+  let rating = 0;
+  reviews.forEach((review) => {
+    rating += review.rating;
+  })
+  rating = rating / reviews.length;
+
   const listReviews = reviews.map((review) => (
-    <>
-      <div>{review.user.name}</div>
-      <div>{review.body}</div>
-    </>
+    <div className="product-review">
+        <div>{review.user.name}</div>
+        <div>{review.headline}</div>
+        <div>{review.body}</div>
+    </div>
   ));
 
-  return <div>{listReviews}</div>;
+  return(
+      <div className="main-review-container">
+        <div className="product-ratings-container">
+          <div className="product-ratings-label">Customer Reviews</div>
+          <div className="product-ratings-score">{rating.toFixed(1)} out of 5</div>
+        </div>
+        <div className="product-reviews-container">
+          <div className="product-review-label">Top reviews from the United States</div>
+          {listReviews}
+        </div>
+    </div>
+  );
 }
 
 export default Reviews;

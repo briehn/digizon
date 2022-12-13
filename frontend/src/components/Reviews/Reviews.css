@@ -1,0 +1,8 @@
+.main-review-container {
+    display: flex;
+    margin-left: 200px;
+}
+
+.product-reviews-container {
+    padding-left: 200px;
+}

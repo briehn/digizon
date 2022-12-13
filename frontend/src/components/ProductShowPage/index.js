@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchProduct, getProduct } from "../../store/product";
 import { addToCart } from "../../store/cart";
+import { getReviews, fetchReviewsByProduct } from "../../store/review";
 import "./ProductShow.css";
 import prime from "../../assets/prime.png";
 import { Link } from "react-router-dom";
@@ -19,6 +20,7 @@ function ProductShowPage() {
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
+
   const monthNames = [
     "January",
     "February",
@@ -106,7 +108,8 @@ function ProductShowPage() {
         <div className="left-container">
           <img
             className="product-image-show"
-            src={product.photoUrl}
+            // src={product.photoUrl}
+            src="https://m.media-amazon.com/images/I/71sYQsPerwL._AC_SX466_.jpg"
             alt="product-display"
           ></img>
         </div>

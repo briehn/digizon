@@ -33,7 +33,7 @@ class Api::ReviewsController < ApplicationController
         @user = current_user
         @review = Review.find_by(id: params[:id])
         if @review
-            @review.update(body: review_params[:body], rating: review_params[:rating])
+            @review.update(headline: review_params[:headline], body: review_params[:body], rating: review_params[:rating])
         end
         render :show
     end
@@ -50,6 +50,6 @@ class Api::ReviewsController < ApplicationController
 
     private
     def review_params
-        params.require(:review).permit(:user_id, :product_id, :body, :rating)
+        params.require(:review).permit(:user_id, :product_id, :headline, :body, :rating)
     end
 end
