@@ -15,17 +15,50 @@ function Reviews({ productId }) {
   console.log(reviews);
   console.log(reviews.length);
 
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   let rating = 0;
   reviews.forEach((review) => {
     rating += review.rating;
   })
   rating = rating / reviews.length;
 
+  const createdToDate = (date) => {
+    date = new Date(date);
+    let str = date.toDateString();
+    str = str.split(" ");
+    return `${monthNames[date.getMonth()]} ${str[2]}, ${str[3]}`;
+  }
+
   const listReviews = reviews.map((review) => (
     <div className="product-review">
-        <div>{review.user.name}</div>
-        <div>{review.headline}</div>
-        <div>{review.body}</div>
+        <div className="review-name">{review.user.name}</div>
+        <div className="review-rating">{review.rating}{" "}
+        <span className="review-heading">{review.headline}</span></div>
+        <div className="review-location-label">Reviewed in the United States on {createdToDate(review.createdAt)}</div>
+        <div className="review-body">{review.body}</div>
     </div>
   ));
 

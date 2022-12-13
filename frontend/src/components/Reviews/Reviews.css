@@ -1,8 +1,41 @@
 .main-review-container {
     display: flex;
     margin-left: 200px;
+    margin-top: 24px;
 }
 
 .product-reviews-container {
     padding-left: 200px;
+}
+
+.product-review-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    line-height: 24px;
+}
+
+.review-location-label {
+    font-size: 14px;
+    color: #565959;
+}
+
+.review-name {
+    font-size: 13px;
+    line-height: 19px;
+    color: #0F1111;
+}
+
+.review-heading {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-review {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.review-body {
+    font-size: 14px;
 }
