@@ -1,0 +1,88 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
+.create-review-container {
+  font-family: "Amazon Ember", sans-serif;
+  margin: 0 auto;
+  width: 768px;
+  padding-top: 20px;
+  padding: 14px;
+}
+
+.create-review-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.create-review-product-name {
+  font-size: 14px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.create-review-headline-label,
+.create-review-body-label,
+.create-review-rating-label {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.headline-input,
+.body-input {
+  width: 100%;
+  font-family: inherit;
+  background-color: #fff;
+  height: 31px;
+  padding: 3px 7px;
+  line-height: normal;
+  border: 1px solid #888c8c;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgb(15 17 17 / 15%) inset;
+  outline: 0;
+}
+
+.headline-input:focus,
+.body-input:focus {
+  --inner-focus-color: #e77600;
+  --outer-focus-color: rgba(228, 121, 17, 0.5);
+  outline: 0;
+  border: 1px solid var(--inner-focus-color);
+  box-shadow: 0 0 3px 2px var(--outer-focus-color);
+}
+
+.body-input {
+  background-color: #fff;
+  width: 100%;
+  padding: 5px 7px;
+  resize: vertical;
+  height: 130px;
+}
+
+.create-review-submit-container {
+  text-align: right;
+}
+
+.create-review-submit-button {
+  background: #ffd814;
+  border-color: #fcd200;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  height: 29px;
+  padding: 0 10px 0 11px;
+}
+
+.create-review-submit-button:hover {
+  background: #f7ca00;
+  border-color: #f2c200;
+}
