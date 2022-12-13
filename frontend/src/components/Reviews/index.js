@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { getReviews, fetchReviewsByProduct } from "../../store/review";
 import "./Reviews.css";
 
@@ -72,9 +72,26 @@ function Reviews({ productId }) {
     <>
       <hr />
       <div className="main-review-container">
-        <div className="product-ratings-container">
-          <div className="product-ratings-label">Customer Reviews</div>
-          <div className="product-ratings-score">{rating} out of 5</div>
+        <div className="left-review-container">
+          <div className="product-ratings-container">
+            <div className="product-ratings-label">Customer Reviews</div>
+            <div className="product-ratings-score">{rating} out of 5</div>
+          </div>
+          <hr />
+          <div className="review-creator-container">
+            <div className="review-creator-label">Review this product</div>
+            <div className="review-creator-comment">
+              Share your thoughts with other customers
+            </div>
+            <div className="review-creator-button-container">
+              <Link
+                className="review-creator-button"
+                to={`/products/${productId}/review/`}
+              >
+                Write a customer review
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="product-reviews-container">
           <div className="product-review-label">

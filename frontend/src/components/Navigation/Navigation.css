@@ -12,7 +12,7 @@
   justify-content: space-between;
   font-family: "Amazon Ember", sans-serif;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   white-space: nowrap;
 }
 
@@ -114,12 +114,14 @@ a {
 }
 
 .nav-right-container > span,
-.nav-right-container > a > span {
+.nav-right-container > a > span,
+.nav-bar-dropdown a span {
   font-size: 12px;
 }
 
 .nav-right-container > p,
-.nav-right-container > a > p {
+.nav-right-container > a > p,
+.nav-bar-dropdown a p {
   font-weight: bold;
 }
 
@@ -130,6 +132,59 @@ a {
 .nav-right > ul > li {
   font-size: 18px;
   margin: 5px auto;
+}
+
+.nav-bar-dropdown {
+  float: left;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-bar-dropdown-content {
+  color: black;
+  display: none;
+  position: absolute;
+  margin-top: 5px;
+  top: 55px;
+  right: 150px;
+  background-color: white;
+  min-width: 350px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  height: 200px;
+  cursor: default;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+/* .nav-bar-dropdown:hover .nav-bar-dropdown-content {
+  display: block;
+} */
+/* 
+.nav-right:first-child:hover .nav-bar-dropdown .nav-bar-dropdown-content {
+  display: block;
+} */
+
+.nav-bar-dropdown-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 65%;
+  top: -5px;
+  border-top: none;
+  border-bottom: 5px solid white;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.dropdown-background {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.449);
 }
 
 /* * {
