@@ -42,36 +42,44 @@ function Reviews({ productId }) {
   let rating = 0;
   reviews.forEach((review) => {
     rating += review.rating;
-  })
-  rating = rating / reviews.length;
+  });
+  if (rating > 0) {
+    rating = (rating / reviews.length).toFixed(1);
+  }
 
   const createdToDate = (date) => {
     date = new Date(date);
     let str = date.toDateString();
     str = str.split(" ");
     return `${monthNames[date.getMonth()]} ${str[2]}, ${str[3]}`;
-  }
+  };
 
   const listReviews = reviews.map((review) => (
     <div className="product-review">
-        <div className="review-name">{review.user.name}</div>
-        <div className="review-rating">{review.rating}{" "}
-        <span className="review-heading">{review.headline}</span></div>
-        <div className="review-location-label">Reviewed in the United States on {createdToDate(review.createdAt)}</div>
-        <div className="review-body">{review.body}</div>
+      <div className="review-name">{review.user.name}</div>
+      <div className="review-rating">
+        {review.rating}{" "}
+        <span className="review-heading">{review.headline}</span>
+      </div>
+      <div className="review-location-label">
+        Reviewed in the United States on {createdToDate(review.createdAt)}
+      </div>
+      <div className="review-body">{review.body}</div>
     </div>
   ));
 
-  return(
-      <div className="main-review-container">
-        <div className="product-ratings-container">
-          <div className="product-ratings-label">Customer Reviews</div>
-          <div className="product-ratings-score">{rating.toFixed(1)} out of 5</div>
+  return (
+    <div className="main-review-container">
+      <div className="product-ratings-container">
+        <div className="product-ratings-label">Customer Reviews</div>
+        <div className="product-ratings-score">{rating} out of 5</div>
+      </div>
+      <div className="product-reviews-container">
+        <div className="product-review-label">
+          Top reviews from the United States
         </div>
-        <div className="product-reviews-container">
-          <div className="product-review-label">Top reviews from the United States</div>
-          {listReviews}
-        </div>
+        {listReviews}
+      </div>
     </div>
   );
 }
