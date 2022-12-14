@@ -32,7 +32,7 @@ function Carousel() {
       interval={5000}
       dragEnabled={false}
     >
-      <Slider>
+      <Slider trayProps={{ onFocus: null }}>
         <Slide className="carousel-slide" index={0}>
           <Image className="carousel-image" src={carousel1} />
         </Slide>

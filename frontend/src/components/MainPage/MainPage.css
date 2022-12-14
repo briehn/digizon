@@ -87,6 +87,7 @@
 .carousel-image {
   position: relative;
   z-index: -1;
+  user-select: none;
 }
 
 .carousel-slide {

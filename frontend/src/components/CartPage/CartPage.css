@@ -13,6 +13,7 @@
   padding: 25px 25px;
   margin-bottom: 5%;
   padding-bottom: 3%;
+  height: fit-content;
 }
 
 .empty-cart-container {
@@ -50,7 +51,7 @@
 .cart-background {
   font-family: "Amazon Ember", sans-serif;
   background: #eaeded;
-  height: 100%;
+  height: 75vh;
   width: 100%;
   padding: 1px;
   display: flex;

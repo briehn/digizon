@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import { fetchCart, getCart, clearCart } from "../../store/cart";
 import CartItem from "./CartItem";
 import emptyCart from "../../assets/sad_digimon.png";
@@ -11,6 +11,7 @@ function CartPage() {
   const cart = useSelector(getCart);
   const dispatch = useDispatch();
   const [subTotal, setSubtotal] = useState(0.0);
+  const history = useHistory();
 
   const listCart = cart.map((product) => (
     <>
@@ -43,6 +44,12 @@ function CartPage() {
     setSubtotal(Math.round(total * 100) / 100);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(clearCart());
+    history.push("/carts/checkout");
+  };
+
   return (
     <div className="cart-background">
       {calculateCartSize() > 0 && (
@@ -64,7 +71,7 @@ function CartPage() {
               {calculateCartSize() > 1 ? "items" : "item"}):&nbsp;
               <span className="sub-total-amt">${subTotal}</span>
             </div>
-            <form onSubmit={(e) => dispatch(clearCart())}>
+            <form onSubmit={handleSubmit}>
               <input
                 type="submit"
                 className="checkout-btn"

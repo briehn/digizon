@@ -59,7 +59,7 @@ function Navigation() {
   }
 
   function handleAfterClick(e) {
-    if (e.target.tagName === "a") {
+    if (e.target.tagName === "A") {
       setSearch("");
     }
   }

@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import ReviewCreateForm from "./components/ReviewFormPage/ReviewCreateForm";
 import ReviewEditForm from "./components/ReviewFormPage/ReviewEditForm";
 import ReviewShowPage from "./components/Reviews/ReviewShowPage";
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import "./reset.css";
 
 function App() {
@@ -30,10 +31,16 @@ function App() {
         <Route path="/signup">
           <SignupFormPage />
         </Route>
-        <Route path="/carts">
+        <Route exact path="/carts">
           <Navigation />
           <CategoryBar />
           <CartPage />
+          <Footer />
+        </Route>
+        <Route exact path="/carts/checkout">
+          <Navigation />
+          <CategoryBar />
+          <CheckoutPage />
           <Footer />
         </Route>
         <Route exact path="/products">

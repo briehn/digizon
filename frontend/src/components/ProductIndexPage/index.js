@@ -34,6 +34,14 @@ function ProductIndexPage() {
     <>
       {listProducts.length > 0 && (
         <div className="display-container">
+          {search && (
+            <div className="search-results-container">
+              <div className="search-label">
+                Search results for:{" "}
+                <span className="search-results">"{search}"</span>
+              </div>
+            </div>
+          )}
           <div className="product-item-container">{listProducts}</div>
         </div>
       )}

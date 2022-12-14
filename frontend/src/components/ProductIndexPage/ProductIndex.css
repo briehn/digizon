@@ -1,10 +1,22 @@
+@import url("https://fonts.cdnfonts.com/css/amazon-ember");
+
 .display-container {
-  margin-top: 3%;
+  margin-top: 2%;
   margin-left: 20%;
   margin-bottom: 5%;
+  font-family: "Amazon Ember", sans-serif;
+}
+
+.search-results-container {
+  margin-bottom: 10px;
 }
 
 .product-item-container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.search-results {
+  color: #c45500;
+  font-weight: 700;
 }
