@@ -123,7 +123,6 @@ function ProductShowPage() {
           </div>
           <div>
             <img src={prime} alt="prime-logo" className="prime-logo"></img>
-            <span className="prime-label">One-Day</span>
             <div className="return-label">FREE Returns</div>
             <div className="points-back">
               <span>Get 0% back</span> on the amount charged to your fictitious

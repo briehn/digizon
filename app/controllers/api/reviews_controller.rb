@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+    wrap_parameters include: Review.attribute_names + [:userId, :productId]
 
     def create
         @user = current_user

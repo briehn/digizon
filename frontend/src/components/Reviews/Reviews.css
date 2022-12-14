@@ -111,4 +111,43 @@
 
 .review-rating {
   margin: 5px 0px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.authorized-review-buttons {
+  margin-top: 10px;
+  display: flex;
+}
+
+.edit-button-container,
+.delete-button-container {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  background: #fff;
+  border-color: #d5d9d9;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  font-size: 11px;
+  line-height: 20px;
+  height: 20px;
+  padding: 0 6px 0 7px;
+  margin-right: 5px;
+}
+
+.delete-button {
+  background: 0;
+  border: 0;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.authorized-button-label {
+  width: 77px;
 }

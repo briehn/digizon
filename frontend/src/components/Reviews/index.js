@@ -113,12 +113,15 @@ function Reviews({ productId }) {
         <div className="authorized-review-buttons">
           <div className="edit-button-container">
             <Link to={`/products/${productId}/review/${review.id}/edit`}>
-              Edit
+              <div className="authorized-button-label">Edit</div>
             </Link>
           </div>
           <div className="delete-button-container">
-            <button onClick={(e) => dispatch(deleteReview(review.id))}>
-              Delete
+            <button
+              className="delete-button"
+              onClick={(e) => dispatch(deleteReview(review.id))}
+            >
+              <div className="authorized-button-label">Delete</div>
             </button>
           </div>
         </div>
