@@ -2,20 +2,9 @@ import "./MainPage.css";
 import Carousel from "../Carousel";
 
 function MainPage() {
-  //IMAGE CAROUSEL
-  //https://cdnb.artstation.com/p/assets/images/images/050/670/955/large/nadiah-najib-digimon-banner.jpg?1655394514
-  //https://seller.tcgplayer.com/media/6727/digimon-card-game-digital-hazard-banner-03.jpg
-  //https://seller.tcgplayer.com/media/6725/digimon-card-game-digital-hazard-banner-01.jpg
-  //https://seller.tcgplayer.com/media/6560/digimon-card-game-next-adventure-banner_01.jpg
-
   return (
     <div className="main-container">
       <div className="main-banner">
-        {/* <img
-          src="https://seller.tcgplayer.com/media/6727/digimon-card-game-digital-hazard-banner-03.jpg"
-          alt="main-banner"
-          className="banner-img"
-        ></img> */}
         <Carousel />
       </div>
       <div className="main-grid-container">

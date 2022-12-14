@@ -48,10 +48,18 @@ function Carousel() {
       </Slider>
       <div className="carousel-button-container">
         <ButtonBack className="carousel-button back-button">
-          <img src={backButton} alt="back-button"></img>
+          <img
+            className="carousel-button-image"
+            src={backButton}
+            alt="back-button"
+          ></img>
         </ButtonBack>
         <ButtonNext className="carousel-button next-button">
-          <img src={nextButton} alt="next-button"></img>
+          <img
+            className="carousel-button-image"
+            src={nextButton}
+            alt="next-button"
+          ></img>
         </ButtonNext>
       </div>
     </CarouselProvider>

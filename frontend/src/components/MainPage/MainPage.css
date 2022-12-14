@@ -29,7 +29,7 @@
 .grid-box {
   position: relative;
   z-index: 0;
-  top: -250px;
+  top: -200px;
   height: 400px;
   padding: 20px 10px 0;
   margin: 25px 10px;
@@ -80,7 +80,7 @@
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 35%;
+  top: 25%;
   width: 100%;
 }
 
@@ -90,5 +90,9 @@
 }
 
 .carousel-slide {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #eaeded);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #eaeded);
+}
+
+.carousel-button-image {
+  height: 50px;
 }
