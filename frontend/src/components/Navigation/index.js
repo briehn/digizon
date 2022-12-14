@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/index.js
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Redirect, Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./Navigation.css";
@@ -11,6 +11,7 @@ function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [search, setSearch] = useState('')
   let display;
   let login;
   if (sessionUser) {
@@ -19,6 +20,29 @@ function Navigation() {
   } else {
     display = "sign in";
   }
+  
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleBeforeUnload);      
+    document.addEventListener('click', (e) => handleAfterClick(e));
+    window.addEventListener('pageshow', handleBeforeUnload);
+
+    return () => {
+      document.removeEventListener('click', handleBeforeUnload);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('pageshow', handleBeforeUnload);
+    };
+  }, []);
+  
+  function handleBeforeUnload() {
+    setSearch('');
+  }
+
+  function handleAfterClick(e) {
+      if (e.target.tagName === 'a') {
+        setSearch('');
+      }
+  }
+  
 
   let altDisplay;
   if (!sessionUser) {
@@ -53,6 +77,13 @@ function Navigation() {
     bg.style.display = "none";
     dropdown.style.display = "none";
   };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (search.length > 0) {
+      history.push(`/${search}`)
+    }
+  }
 
   const logout = () => {
     dispatch(sessionActions.logout());
@@ -98,8 +129,8 @@ function Navigation() {
           ></img>
         </div>
         <div className="nav-center">
-          <form className="nav-search">
-            <input type="text" className="nav-search-field"></input>
+          <form className="nav-search" onSubmit={handleSearchSubmit}>
+            <input type="text" className="nav-search-field" value={search} onChange={(e) => setSearch(e.target.value)}></input>
             <input type="submit" className="nav-search-button"></input>
           </form>
         </div>

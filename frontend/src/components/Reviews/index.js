@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, Link } from "react-router-dom";
-import { getReviews, fetchReviewsByProduct } from "../../store/review";
+import { Redirect, useParams, useHistory, Link } from "react-router-dom";
+import { getReviews, fetchReviewsByProduct, deleteReview } from "../../store/review";
 import "./Reviews.css";
 import emptyStar from "../../assets/review_empty_star.png"
 import filledStar from "../../assets/review_filled_star.png"
@@ -10,7 +10,9 @@ import placeholder from "../../assets/placeholder_profile_ava.jpg"
 function Reviews({ productId }) {
   const dispatch = useDispatch();
   const reviews = useSelector(getReviews);
+  const history = useHistory();
   const userId = useSelector((state) => state.session.user?.id);
+  console.log(reviews);
 
   useEffect(() => {
     dispatch(fetchReviewsByProduct(productId));
@@ -48,6 +50,10 @@ function Reviews({ productId }) {
     rating = (rating / reviews.length).toFixed(1);
   }
 
+  const handleEditClick = (e, review) => {
+    history.push(`/products/${productId}/review/${review.id}`);
+  }
+
   const createdToDate = (date) => {
     date = new Date(date);
     let str = date.toDateString();
@@ -80,7 +86,7 @@ function Reviews({ productId }) {
           </span>
         </div>
       </div>
-      <div className="review-rating">
+      <div className="review-rating"  onClick={(e) => handleEditClick(e, review)}>
         <div className="review-star-ratings">{displayStarRating(review)} {" "}
         <span className="review-heading">{review.headline}</span></div>
       </div>
@@ -89,8 +95,13 @@ function Reviews({ productId }) {
       </div>
       <div className="review-body">{review.body}</div>
       {(review.userId === userId) && (
-        <div className="edit-button-container">
-          <Link to={`/products/${productId}/review/${review.id}/edit`}>Edit</Link>
+        <div className="authorized-review-buttons">
+          <div className="edit-button-container">
+            <Link to={`/products/${productId}/review/${review.id}/edit`}>Edit</Link>
+          </div>
+          <div className="delete-button-container">
+            <button onClick={(e) => dispatch(deleteReview(review.id))}>Delete</button>
+          </div>
         </div>
       )}
     </div>

@@ -27,6 +27,9 @@ function ReviewCreateForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (errors.length === 0 || !errors.length) {
+      history.push(`/products/${productId}`);
+    }
     setErrors([]);
     dispatch(createReview({ userId, productId, headline, rating, body })).catch(
       async (res) => {
@@ -40,9 +43,6 @@ function ReviewCreateForm() {
       else if (data) setErrors([data]);
       else setErrors([res.statusText]);
     });
-    if (errors.length === 0 || !errors.length) {
-      history.push(`/products/${productId}`);
-    }
   };
 
   const displayError = (input) => {

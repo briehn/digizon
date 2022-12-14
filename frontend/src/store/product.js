@@ -44,6 +44,18 @@ export const fetchProductsByCategory = (category) => async (dispatch) => {
   dispatch(receiveProducts(data));
 };
 
+export const searchProductByName = (search) => async (dispatch) => {
+  const res = await csrfFetch("/api/products?" + new URLSearchParams({search}),
+  {
+    method: "GET",
+    headers: {
+      "content-type": "application/json"
+    }
+  });
+  const data = await res.json();
+  dispatch(receiveProducts(data));
+}
+
 const productsReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {

@@ -11,6 +11,7 @@ import CartPage from "./components/CartPage";
 import Footer from "./components/Footer";
 import ReviewCreateForm from "./components/ReviewFormPage/ReviewCreateForm";
 import ReviewEditForm from "./components/ReviewFormPage/ReviewEditForm";
+import ReviewShowPage from "./components/Reviews/ReviewShowPage";
 import "./reset.css";
 
 function App() {
@@ -47,16 +48,28 @@ function App() {
           <ProductShow />
           <Footer />
         </Route>
-        <Route exact path="/:category">
+        <Route exact path="/category/:category">
           <Navigation />
           <CategoryBar />
           <ProductIndex />
           <Footer />
         </Route>
-        <Route exact path="/products/:productId/review/">
+        <Route exact path="/:search">
+          <Navigation />
+          <CategoryBar />
+          <ProductIndex />
+          <Footer />
+        </Route>
+        <Route exact path="/products/:productId/review">
           <Navigation />
           <CategoryBar />
           <ReviewCreateForm />
+          <Footer />
+        </Route>
+        <Route exact path="/products/:productId/review/:reviewId">
+          <Navigation />
+          <CategoryBar />
+          <ReviewShowPage />
           <Footer />
         </Route>
         <Route exact path="/products/:productId/review/:reviewId/edit">

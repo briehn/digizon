@@ -26,7 +26,6 @@ export const getReview = (reviewId) => (state) =>
   state.reviews ? state.reviews[reviewId] : null;
 
 export const createReview = (review) => async (dispatch) => {
-  const {userId, productId, headline, rating, body } = review;
   const res = await csrfFetch("/api/reviews", {
     method: "POST",
     body: JSON.stringify({
@@ -82,7 +81,7 @@ const reviewReducer = (state = {}, action) => {
     case ADD_REVIEWS:
       return { ...action.reviews };
     case REMOVE_REVIEW:
-      delete newState[action.review.id];
+      delete newState[action.review.review.id];
       return newState;
     default:
       return state;
