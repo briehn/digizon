@@ -4,7 +4,8 @@
   font-size: 28px;
 }
 
-.cart-container {
+.cart-container,
+.empty-cart-container {
   margin-top: 2%;
   width: 60%;
   max-width: 80%;
@@ -12,6 +13,26 @@
   padding: 25px 25px;
   margin-bottom: 5%;
   padding-bottom: 3%;
+}
+
+.empty-cart-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-empty-image-container {
+  width: 50%;
+  margin-right: 10px;
+}
+
+.empty-cart-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.cart-empty-label {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .checkout-container {

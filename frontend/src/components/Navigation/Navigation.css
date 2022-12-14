@@ -84,7 +84,7 @@
 
 .nav-right-container,
 .cart-link {
-  margin: auto 10px;
+  margin: auto 5px;
   cursor: pointer;
   padding: 10px 15px;
   border: 1px solid transparent;
@@ -149,13 +149,98 @@ a {
   top: 55px;
   right: 150px;
   background-color: white;
-  min-width: 350px;
+  min-width: 400px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   height: 200px;
   cursor: default;
   border-radius: 5px;
   padding: 10px 10px;
+  justify-content: space-between;
+}
+
+.dropdown-gif-image {
+  height: 200px;
+}
+
+.dropdown-signin-button,
+.dropdown-logout-button {
+  font-size: 13px;
+  margin-bottom: 13px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #f8e3ad, #eeba37);
+  border-color: #c89411 #b0820f #99710d;
+  color: #111;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  height: 33px;
+  border-radius: 2px;
+}
+
+.dropdown-signin-button:hover,
+.dropdown-logout-button:hover {
+  background: linear-gradient(to bottom, #f6da95, #ecb21f);
+}
+
+.dropdown-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.dropdown-signup-label {
+  text-align: center;
+  font-size: 11px;
+  color: #333;
+  margin: 2px 0 9px 0;
+}
+
+.dropdown-signup-link {
+  font-size: 11px;
+  text-decoration: none;
+  color: #05a;
+  display: inline;
+}
+
+.nav-cart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.nav-cart {
+  height: 32px;
+  width: 42px;
+}
+
+.nav-cart-label {
+  font-weight: bold;
+  position: relative;
+  bottom: 3px;
+}
+
+.nav-cart-count {
+  font-size: 18px;
+  color: #f08804;
+  font-weight: bold;
+  position: absolute;
+  right: 66px;
+  top: 15px;
+}
+
+.dropdown-signup-link:hover {
+  text-decoration: underline;
+  color: #e47911;
+  display: inline;
 }
 
 /* .nav-bar-dropdown:hover .nav-bar-dropdown-content {

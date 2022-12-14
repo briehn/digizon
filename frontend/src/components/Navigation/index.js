@@ -4,14 +4,18 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Redirect, Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./Navigation.css";
+import { fetchCart, clearCart } from "../../store/cart";
+import cartIcon from "../../assets/cart.png";
 import logo from "../../assets/logo.png";
 import * as sessionActions from "../../store/session";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
+  const userId = sessionUser.id;
   const dispatch = useDispatch();
   const history = useHistory();
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
+  const cart = useSelector((state) => state.carts.cart);
   let display;
   let login;
   if (sessionUser) {
@@ -20,29 +24,45 @@ function Navigation() {
   } else {
     display = "sign in";
   }
-  
+
   useEffect(() => {
-    window.addEventListener('beforeunload', handleBeforeUnload);      
-    document.addEventListener('click', (e) => handleAfterClick(e));
-    window.addEventListener('pageshow', handleBeforeUnload);
+    if (userId) {
+      dispatch(fetchCart(userId));
+    } else {
+      dispatch(clearCart());
+    }
+  }, [userId, dispatch]);
+
+  const getCartLength = (cart) => {
+    // debugger;
+    let total = 0;
+    cart.forEach((product) => {
+      total += product.quantity;
+    });
+    return total;
+  };
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    document.addEventListener("click", (e) => handleAfterClick(e));
+    window.addEventListener("pageshow", handleBeforeUnload);
 
     return () => {
-      document.removeEventListener('click', handleBeforeUnload);
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      window.removeEventListener('pageshow', handleBeforeUnload);
+      document.removeEventListener("click", handleAfterClick);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("pageshow", handleBeforeUnload);
     };
   }, []);
-  
+
   function handleBeforeUnload() {
-    setSearch('');
+    setSearch("");
   }
 
   function handleAfterClick(e) {
-      if (e.target.tagName === 'a') {
-        setSearch('');
-      }
+    if (e.target.tagName === "a") {
+      setSearch("");
+    }
   }
-  
 
   let altDisplay;
   if (!sessionUser) {
@@ -67,7 +87,7 @@ function Navigation() {
     const dropdown = document.querySelector(".nav-bar-dropdown-content");
     e.stopPropagation();
     bg.style.display = "block";
-    dropdown.style.display = "block";
+    dropdown.style.display = "flex";
   };
 
   const removeBackground = (e) => {
@@ -81,9 +101,9 @@ function Navigation() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (search.length > 0) {
-      history.push(`/${search}`)
+      history.push(`/${search}`);
     }
-  }
+  };
 
   const logout = () => {
     dispatch(sessionActions.logout());
@@ -130,7 +150,12 @@ function Navigation() {
         </div>
         <div className="nav-center">
           <form className="nav-search" onSubmit={handleSearchSubmit}>
-            <input type="text" className="nav-search-field" value={search} onChange={(e) => setSearch(e.target.value)}></input>
+            <input
+              type="text"
+              className="nav-search-field"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            ></input>
             <input type="submit" className="nav-search-button"></input>
           </form>
         </div>
@@ -145,19 +170,40 @@ function Navigation() {
                 <span>Hello, {display}</span>
                 <p>Accounts & Lists</p>
               </Link>
-              {!login && (
-                <div className="nav-bar-dropdown-content">
-                  <Link to="/login">Login</Link>
-                  <div>
-                    New customer? <Link to="/signup">Start here.</Link>
-                  </div>
+              <div className="nav-bar-dropdown-content">
+                <div className="dropdown-gif-container">
+                  <img
+                    className="dropdown-gif-image"
+                    src="https://thumbs.gfycat.com/MellowElegantAffenpinscher-size_restricted.gif"
+                    alt="dropdown-gif"
+                  ></img>
                 </div>
-              )}
-              {login && (
-                <div className="nav-bar-dropdown-content">
-                  <button onClick={logout}>Logout</button>
+                <div className="dropdown-right-container">
+                  {!login && (
+                    <>
+                      <Link className="dropdown-signin-button" to="/login">
+                        Sign In
+                      </Link>
+                      <div className="dropdown-signup-label">
+                        New customer?{" "}
+                        <Link className="dropdown-signup-link" to="/signup">
+                          Start here.
+                        </Link>
+                      </div>
+                    </>
+                  )}
+                  {login && (
+                    <>
+                      <button
+                        className="dropdown-logout-button"
+                        onClick={logout}
+                      >
+                        Logout
+                      </button>
+                    </>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
           <div className="nav-right-container">
@@ -165,8 +211,17 @@ function Navigation() {
             <p>& Orders</p>
           </div>
           <Link className="cart-link" to={login ? "/carts" : "/login"}>
-            <div className="nav-right-container">
-              <p>Cart</p>
+            <div className=" nav-cart-container">
+              <div className="nav-cart-image-container">
+                <span className="nav-cart-count">
+                  {" "}
+                  {cart ? getCartLength(cart) : 0}
+                </span>
+                <img className="nav-cart" src={cartIcon} alt="cart"></img>
+              </div>
+              <div className="nav-cart-label">
+                <p>Cart</p>
+              </div>
             </div>
           </Link>
         </div>
