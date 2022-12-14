@@ -86,3 +86,26 @@
   background: #f7ca00;
   border-color: #f2c200;
 }
+
+.review-star {
+  background-color: transparent;
+  border: 0;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.review-star-image {
+  height: 100%;
+  cursor: pointer;
+}
+
+.review-product-image {
+  height: 50px;
+}
+
+.review-error {
+  margin-top: 0.9rem;
+  color: #d00;
+  font-size: 14px;
+}

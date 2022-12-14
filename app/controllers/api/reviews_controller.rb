@@ -3,7 +3,7 @@ class Api::ReviewsController < ApplicationController
     def create
         @user = current_user
         @review = Review.new(review_params)
-        if @review
+        if @review.save
             render :show
         else
             render json: { errors: @review.errors.full_messages}, status: :unprocessable_entity

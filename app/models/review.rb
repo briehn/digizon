@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  validates :headline, :body, :rating, presence: true
-  validates :rating, numericality: {in: 0..5, message: "something went wrong with your rating review"}
+  validates :body, length: {in: 1..20000}
+  validates :rating, numericality: {in: 1..5, message: "must be between 1 to 5"}
   validates :headline, length: {in: 1..100}
 
   belongs_to :user

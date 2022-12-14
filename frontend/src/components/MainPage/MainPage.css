@@ -24,7 +24,6 @@
   /* remove justify-content when adding more grid boxes */
   justify-content: space-evenly;
   flex-wrap: wrap;
-  max-width: 1480px;
 }
 
 .grid-box {

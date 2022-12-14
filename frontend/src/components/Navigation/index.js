@@ -42,7 +42,6 @@ function Navigation() {
     const bg = document.querySelector(".dropdown-background");
     const dropdown = document.querySelector(".nav-bar-dropdown-content");
     e.stopPropagation();
-    console.log("in background");
     bg.style.display = "block";
     dropdown.style.display = "block";
   };
@@ -51,7 +50,6 @@ function Navigation() {
     const bg = document.querySelector(".dropdown-background");
     const dropdown = document.querySelector(".nav-bar-dropdown-content");
     e.stopPropagation();
-    console.log("leave dropdown");
     bg.style.display = "none";
     dropdown.style.display = "none";
   };

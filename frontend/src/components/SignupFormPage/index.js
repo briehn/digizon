@@ -26,17 +26,14 @@ function SignupFormPage() {
       async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if the server is down
+          data = await res.text();
         }
-        // debugger;
         if (
           password.length >= 1 &&
           (password !== confirmPassword || confirmPassword.length === 0)
         ) {
-          // debugger;
           if (data?.errors) {
             data.errors.push("SecondPassword needs to be typed");
           } else {
@@ -70,24 +67,14 @@ function SignupFormPage() {
     let result = "";
     let type;
     let field;
-    if (input === "secondpassword") {
-      console.log(`Input: ${input}`);
-      console.log(`Errors: ${errors}`);
-    }
     errors.forEach((error) => {
-      // debugger;
       type = error.split(" ")[0].toLowerCase();
-      if (type === "secondpassword") {
-        console.log(`Type: ${type}`);
-      }
-      // console.log(`Type: ${type}, Input: ${input}, Error: ${error}`);
       if (type === input) {
         if (input === "password") {
           let passwordContent = document.getElementById("password-content");
           passwordContent.style.display = "none";
         }
         field = document.getElementById(`${type}`);
-        // debugger;
         field.style.borderColor = "#d00";
         field.style.boxShadow = "0 0 0 3px rgb(221 0 0 / 10%) inset";
         if (type === "email" && email.length < 1) {
