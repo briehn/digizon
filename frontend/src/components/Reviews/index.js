@@ -16,7 +16,6 @@ function Reviews({ productId }) {
   const reviews = useSelector(getReviews);
   const history = useHistory();
   const userId = useSelector((state) => state.session.user?.id);
-  console.log(reviews);
 
   useEffect(() => {
     dispatch(fetchReviewsByProduct(productId));

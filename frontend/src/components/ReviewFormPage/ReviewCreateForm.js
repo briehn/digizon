@@ -26,7 +26,6 @@ function ReviewCreateForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(errors);
     setErrors([]);
     dispatch(createReview({ userId, productId, headline, rating, body }))
       .then(() => {
@@ -39,25 +38,17 @@ function ReviewCreateForm() {
         } catch {
           data = await res.text();
         }
-        // debugger;
         if (rating === 0) {
-          // debugger;
           if (data?.errors) {
             data.errors.push("Rating must be greater than 0");
           } else {
             data.push("Rating must be greater than 0");
           }
-          console.log(errors);
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
       });
-    console.log(errors);
-    // debugger;
-    // if (errors.length === 0 || !errors.length) {
-    // history.push(`/products/${productId}`);
-    // }
   };
 
   const displayError = (input) => {

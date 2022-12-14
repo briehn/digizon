@@ -13,23 +13,18 @@ function ReviewEditForm() {
   const { productId, reviewId } = useParams();
   const product = useSelector(getProduct(productId)) || {};
   const review = useSelector(getReview(reviewId)) || {};
-  // debugger;
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [headline, setHeadline] = useState("");
   const [rating, setRating] = useState(0);
   const [body, setBody] = useState("");
-  // debugger;
 
   if (userId === undefined) history.push("/login");
 
-  console.log(review);
-
   useEffect(() => {
-    // debugger;
     dispatch(fetchReview(productId, userId));
     dispatch(fetchProduct(productId));
-  }, [dispatch, reviewId]);
+  }, [dispatch, reviewId, productId, userId]);
 
   useEffect(() => {
     if (review.headline) {
@@ -106,7 +101,6 @@ function ReviewEditForm() {
     });
     setRating(num);
   };
-  // debugger;
   if (!review || !product) return null;
   return (
     <div className="create-review-container">

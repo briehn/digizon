@@ -34,7 +34,6 @@ function Navigation() {
   }, [userId, dispatch]);
 
   const getCartLength = (cart) => {
-    // debugger;
     let total = 0;
     cart.forEach((product) => {
       total += product.quantity;
