@@ -1,4 +1,5 @@
 import "./MainPage.css";
+import Carousel from "../Carousel";
 
 function MainPage() {
   //IMAGE CAROUSEL
@@ -10,11 +11,12 @@ function MainPage() {
   return (
     <div className="main-container">
       <div className="main-banner">
-        <img
+        {/* <img
           src="https://seller.tcgplayer.com/media/6727/digimon-card-game-digital-hazard-banner-03.jpg"
           alt="main-banner"
           className="banner-img"
-        ></img>
+        ></img> */}
+        <Carousel />
       </div>
       <div className="main-grid-container">
         <div className="grid-box">

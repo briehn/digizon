@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Redirect } from "react-router-dom";
 import { fetchProduct, getProduct } from "../../store/product";
-import { createReview, fetchReview, getReview } from "../../store/review";
+import {
+  createReview,
+  editReview,
+  fetchReview,
+  getReview,
+} from "../../store/review";
 import "./ReviewEditForm.css";
 import emptyStar from "../../assets/empty_star.png";
 import filledStar from "../../assets/filled_star.png";
@@ -40,7 +45,7 @@ function ReviewEditForm() {
       history.push(`/products/${productId}`);
     }
     setErrors([]);
-    dispatch(createReview({ userId, productId, headline, rating, body })).catch(
+    dispatch(editReview(reviewId, headline, body, rating)).catch(
       async (res) => {
         let data;
         try {
@@ -101,12 +106,45 @@ function ReviewEditForm() {
     });
     setRating(num);
   };
+
+  const displayReviewStars = () => {
+    let stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push(
+        <button
+          className="review-star"
+          onClick={(e) => handleRatingClick(e, i + 1)}
+        >
+          <img
+            className="review-star-image"
+            src={filledStar}
+            alt="star-rating"
+          ></img>
+        </button>
+      );
+    }
+    for (let i = rating; i < 5; i++) {
+      stars.push(
+        <button
+          className="review-star"
+          onClick={(e) => handleRatingClick(e, i + 1)}
+        >
+          <img
+            className="review-star-image"
+            src={emptyStar}
+            alt="star-rating"
+          ></img>
+        </button>
+      );
+    }
+    return stars;
+  };
   if (!review || !product) return null;
   return (
     <div className="create-review-container">
       <form onSubmit={handleSubmit}>
         <div className="create-review-top-container">
-          <div className="create-review-label">Create Review</div>
+          <div className="create-review-label">Edit Review</div>
           <div className="create-review-product-container">
             <div className="review-product-image-container">
               <img
@@ -122,56 +160,7 @@ function ReviewEditForm() {
         <div className="create-review-rating-container">
           <div className="create-review-rating-label">Overall Rating</div>
           <div className="create-review-star-rating-container">
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 1)}
-            >
-              <img
-                className="review-star-image"
-                src={emptyStar}
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 2)}
-            >
-              <img
-                className="review-star-image"
-                src={emptyStar}
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 3)}
-            >
-              <img
-                className="review-star-image"
-                src={emptyStar}
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 4)}
-            >
-              <img
-                className="review-star-image"
-                src={emptyStar}
-                alt="star-rating"
-              ></img>
-            </button>
-            <button
-              className="review-star"
-              onClick={(e) => handleRatingClick(e, 5)}
-            >
-              <img
-                className="review-star-image"
-                src={emptyStar}
-                alt="star-rating"
-              ></img>
-            </button>
+            {displayReviewStars()}
           </div>
           <div className="review-error">{displayError("rating")}</div>
         </div>

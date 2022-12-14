@@ -7,6 +7,8 @@ import { getReviews, fetchReviewsByProduct } from "../../store/review";
 import "./ProductShow.css";
 import prime from "../../assets/prime.png";
 import { Link } from "react-router-dom";
+import emptyStar from "../../assets/review_empty_star.png";
+import filledStar from "../../assets/review_filled_star.png";
 
 import Reviews from "../Reviews";
 
@@ -20,6 +22,38 @@ function ProductShowPage() {
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
+
+  const reviews = useSelector(getReviews);
+
+  let rating = 0;
+  reviews.forEach((review) => {
+    rating += review.rating;
+  });
+  if (rating > 0) {
+    rating = (rating / reviews.length).toFixed(1);
+  }
+  const displayStarRating = (rating) => {
+    let stars = [];
+    for (let i = 0; i < Math.floor(rating); i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={filledStar}
+          alt="filled-star"
+        ></img>
+      );
+    }
+    for (let i = rating; i < 5; i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={emptyStar}
+          alt="empty-star"
+        ></img>
+      );
+    }
+    return stars;
+  };
 
   const monthNames = [
     "January",
@@ -115,6 +149,10 @@ function ProductShowPage() {
         </div>
         <div className="center-container">
           <span className="product-name">{product.name}</span>
+          <div>
+            {displayStarRating(rating)}
+            <span className="ratings-length"> {reviews.length} ratings</span>
+          </div>
           <hr />
           <div className="product-price">
             <span className="price-symbol">$</span>

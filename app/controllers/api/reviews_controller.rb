@@ -14,6 +14,7 @@ class Api::ReviewsController < ApplicationController
     def show
         @user = current_user
         @review = Review.find_by(user_id: params[:id])
+        # debugger;
         if @review
             render :show
         else

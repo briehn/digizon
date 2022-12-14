@@ -1,11 +1,15 @@
 import csrfFetch from "./csrf";
 export const RECEIVE_CART = "cart/RECEIVE_CART";
 // export const DELETE_CART = "cart/DELETE_CART";
-// export const CLEAR_CART = "cart/CLEAR_CART";
+export const CLEAR_CART = "cart/CLEAR_CART";
 
 export const receiveCart = (cart) => ({
   type: RECEIVE_CART,
   cart,
+});
+
+export const clearCartTest = () => ({
+  type: CLEAR_CART,
 });
 
 export const getCart = (state) =>
@@ -69,8 +73,8 @@ const cartReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CART:
       return action.cart;
-    // case CLEAR_CART:
-    //     return {};
+    case CLEAR_CART:
+      return {};
     default:
       return state;
   }

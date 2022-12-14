@@ -7,6 +7,7 @@
   height: 400px;
   width: 275px;
   margin-bottom: 15px;
+  font-family: "Amazon Ember", sans-serif;
 }
 
 .product-link {
@@ -14,6 +15,20 @@
   color: black;
   font-family: "Amazon Ember", sans-serif;
   margin-left: 7px;
+}
+
+.product-item-rating {
+  margin-left: 7px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.product-ratings-length {
+  font-size: 14px;
+  line-height: 20px;
+  color: #007185;
+  margin-left: 5px;
 }
 
 .product-item-base {

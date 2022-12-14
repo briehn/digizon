@@ -4,21 +4,22 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Redirect, Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./Navigation.css";
-import { fetchCart, clearCart } from "../../store/cart";
+import { fetchCart, clearCartTest } from "../../store/cart";
 import cartIcon from "../../assets/cart.png";
 import logo from "../../assets/logo.png";
 import * as sessionActions from "../../store/session";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
-  const userId = sessionUser.id;
+  const userId = useSelector((state) => state.session.user?.id);
+  // const userId = sessionUser.id;
   const dispatch = useDispatch();
   const history = useHistory();
   const [search, setSearch] = useState("");
   const cart = useSelector((state) => state.carts.cart);
   let display;
   let login;
-  if (sessionUser) {
+  if (userId) {
     login = true;
     display = sessionUser.name;
   } else {
@@ -26,12 +27,12 @@ function Navigation() {
   }
 
   useEffect(() => {
-    if (userId) {
-      dispatch(fetchCart(userId));
+    if (sessionUser) {
+      dispatch(fetchCart(sessionUser.id));
     } else {
-      dispatch(clearCart());
+      dispatch(clearCartTest());
     }
-  }, [userId, dispatch]);
+  }, [sessionUser, dispatch]);
 
   const getCartLength = (cart) => {
     let total = 0;

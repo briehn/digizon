@@ -49,18 +49,18 @@ export const fetchReview = (product_id, user_id) => async (dispatch) => {
   dispatch(addReview(data.review));
 };
 
-export const editReview = (id, headline, body, rating) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${id}`, {
-    method: "PATCH",
-    body: JSON.stringify({ review: { headline, body, rating } }),
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-  const data = await res.json();
-  dispatch(addReview(data.review));
-  dispatch(addReview(data.user));
-};
+export const editReview =
+  (review_id, headline, body, rating) => async (dispatch) => {
+    const res = await csrfFetch(`/api/reviews/${review_id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ review: { headline, body, rating } }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    const data = await res.json();
+    dispatch(addReview(data.review));
+  };
 
 export const deleteReview = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/${id}`, {

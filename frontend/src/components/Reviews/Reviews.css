@@ -4,8 +4,13 @@
   margin-top: 24px;
 }
 
+.left-review-container {
+  width: 20%;
+}
+
 .product-reviews-container {
-  padding-left: 150px;
+  padding-left: 100px;
+  width: 50%;
 }
 
 .product-ratings-label {

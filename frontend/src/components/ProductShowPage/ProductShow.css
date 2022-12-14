@@ -235,3 +235,9 @@ hr {
   font-weight: light;
   list-style: disc;
 }
+
+.ratings-length {
+  font-size: 14px;
+  line-height: 20px;
+  color: #007185;
+}

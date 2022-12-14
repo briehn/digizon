@@ -21,6 +21,36 @@ function Reviews({ productId }) {
     dispatch(fetchReviewsByProduct(productId));
   }, [dispatch, productId]);
 
+  let rating = 0;
+  reviews.forEach((review) => {
+    rating += review.rating;
+  });
+  if (rating > 0) {
+    rating = (rating / reviews.length).toFixed(1);
+  }
+  const displayProductRating = (rating) => {
+    let stars = [];
+    for (let i = 0; i < Math.floor(rating); i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={filledStar}
+          alt="filled-star"
+        ></img>
+      );
+    }
+    for (let i = rating; i < 5; i++) {
+      stars.push(
+        <img
+          className="star-ratings-image"
+          src={emptyStar}
+          alt="empty-star"
+        ></img>
+      );
+    }
+    return stars;
+  };
+
   const monthNames = [
     "January",
     "February",
@@ -44,14 +74,6 @@ function Reviews({ productId }) {
     "Friday",
     "Saturday",
   ];
-
-  let rating = 0;
-  reviews.forEach((review) => {
-    rating += review.rating;
-  });
-  if (rating > 0) {
-    rating = (rating / reviews.length).toFixed(1);
-  }
 
   const handleEditClick = (e, review) => {
     history.push(`/products/${productId}/review/${review.id}`);
@@ -135,7 +157,9 @@ function Reviews({ productId }) {
         <div className="left-review-container">
           <div className="product-ratings-container">
             <div className="product-ratings-label">Customer Reviews</div>
-            <div className="product-ratings-score">{rating} out of 5</div>
+            <div className="product-ratings-score">
+              {displayProductRating(rating)} <span>{rating} out of 5</span>
+            </div>
           </div>
           <hr />
           <div className="review-creator-container">
