@@ -14,7 +14,7 @@
 
 # **V.I.F (Very Important Features)**
 
-## **Search**
+## <p align="center"/> **Search** </p>
 
 Being able to click a category to filter products or search for a product by name are, programatically, used the same way.
 
@@ -69,7 +69,7 @@ function handleAfterClick(e) {
 
 With this event listeners added, we can now account for user interactions making the correct changes to the search bar so the input is not leftover. A small detail, but makes the experience much better.
 
-## **Error Handling: User Authentication and Review**
+## <p align="center"/> **Error Handling: User Authentication and Review** </p>
 
 Validations and constraints are applied to both the user and review objects. However, Amazon had a unique method to display their errors and their messages; so, changes had to be made.
 
