@@ -14,6 +14,22 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const handleChangeEmail = (e) => {
+    let field = document.getElementById(`email`);
+    field.style.border = "1px solid #a6a6a6";
+    field.style.boxShadow = "none";
+    setErrors([]);
+    setEmail(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    let field = document.getElementById(`password`);
+    field.style.border = "1px solid #a6a6a6";
+    field.style.boxShadow = "none";
+    setErrors([]);
+    setPassword(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -21,16 +37,45 @@ function LoginFormPage() {
       async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if the server is down
+          data = await res.text();
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
+        console.log(errors);
       }
     );
+  };
+
+  const displayError = (input) => {
+    let messages = {
+      email: {
+        2: "Enter your email.",
+        1: "We cannot find an account with that email address",
+      },
+      password: {
+        1: "Password is invalid.",
+      },
+    };
+    let result = "";
+    let type;
+    let field;
+    errors.forEach((error) => {
+      type = error.split(" ")[0].toLowerCase();
+      if (type === input) {
+        field = document.getElementById(`${type}`);
+        field.style.borderColor = "#d00";
+        field.style.boxShadow = "0 0 0 3px rgb(221 0 0 / 10%) inset";
+        if (type === "email" && email.length < 1) {
+          result = messages.email[2];
+        } else {
+          result = messages[input][1];
+        }
+      }
+    });
+    return <p>{result}</p>;
   };
 
   const loginDemo = () => {
@@ -49,29 +94,26 @@ function LoginFormPage() {
       <div className="center-form">
         <p className="createAccount">Sign in</p>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
           <label className="login-label">
             Email
             <input
+              id="email"
               type="text"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              onChange={handleChangeEmail}
             />
           </label>
+          <div className="error">{displayError("email")}</div>
           <label className="login-label">
             Password
             <input
+              id="password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              onChange={handleChangePassword}
             />
           </label>
+          <div className="error">{displayError("password")}</div>
           <button className="login-button" type="submit">
             Log In
           </button>
