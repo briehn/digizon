@@ -10,4 +10,4 @@ else
 end
 json.ratings ratings
 json.reviewCount @product.reviews.length
-# json.photoUrl @product.photo.url
+json.photoUrl @product.photo.url

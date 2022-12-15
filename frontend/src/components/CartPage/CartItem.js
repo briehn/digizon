@@ -5,7 +5,7 @@ import { deleteFromCart, updateItemCount } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
 
 function CartItem({ product }) {
-  const { id, name, price } = product;
+  const { id, name, price, photoUrl } = product;
   const [count, setCount] = useState(product.quantity);
   const userId = useSelector((state) => state.session.user?.id);
   const dispatch = useDispatch();
@@ -42,11 +42,7 @@ function CartItem({ product }) {
     <div className="cart-item-container">
       <div className="cart-item-image-container">
         <Link to={`/products/${id}`} target="_blank">
-          <img
-            className="cart-item-image"
-            src={product.photoURL}
-            alt="product"
-          ></img>
+          <img className="cart-item-image" src={photoUrl} alt="product"></img>
         </Link>
       </div>
       <div className="item-center-container">

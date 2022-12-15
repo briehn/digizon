@@ -20,9 +20,6 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/test">
-          <TopRatedCarousel />
-        </Route>
         <Route exact path="/">
           <Navigation />
           <CategoryBar />

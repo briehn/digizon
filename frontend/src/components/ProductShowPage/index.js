@@ -142,8 +142,7 @@ function ProductShowPage() {
         <div className="left-container">
           <img
             className="product-image-show"
-            // src={product.photoUrl}
-            src="https://m.media-amazon.com/images/I/71sYQsPerwL._AC_SX466_.jpg"
+            src={product.photoUrl}
             alt="product-display"
           ></img>
         </div>

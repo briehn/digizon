@@ -107,7 +107,7 @@ function ReviewCreateForm() {
             <div className="review-product-image-container">
               <img
                 className="review-product-image"
-                src="https://m.media-amazon.com/images/I/71sYQsPerwL._AC_SX466_.jpg"
+                src={product.photoUrl}
                 alt="review-item"
               ></img>
             </div>

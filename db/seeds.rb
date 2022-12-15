@@ -51,8 +51,10 @@ ApplicationRecord.transaction do
         description: "A basic Digivice created by the Agents, primarily to allow the user to digivolve their partners.",
         category: "Digivice",
         price: 13.37,
-        file: "https://digizon-seeds.s3.amazonaws.com/digivice/taichi_digivice.png",
-        fileName: "taichi_digivice.png",
+        # file: "https://digizon-seeds.s3.amazonaws.com/digivice/taichi_digivice.png",
+        # fileName: "taichi_digivice.png",
+        file: "https://digizon-seeds.s3.amazonaws.com/digivice/taichi_digivice_1.png",
+        fileName: "taichi_digivice_1.png",
       }, 
       {
         name: "D-3 Digivice",
@@ -91,8 +93,10 @@ ApplicationRecord.transaction do
         description: "A small device that pairs well with a Digicrest.",
         category:  "Accessories",
         price: 14.99,
-        file: "https://digizon-seeds.s3.amazonaws.com/accessories/digitag.png",
-        fileName: "digitag.png",
+        # file: "https://digizon-seeds.s3.amazonaws.com/accessories/digitag.png",
+        # fileName: "digitag.png",
+        file: "https://digizon-seeds.s3.amazonaws.com/accessories/digitag_1.png",
+        fileName: "digitag_1.png",
       },
       {
         name: "Crest of Courage",
@@ -288,8 +292,8 @@ ApplicationRecord.transaction do
         price: product[:price]
       }
       obj = Product.create(keys)
-      # file = URI.open(product[:file])
-      # obj.photo.attach(io: file, filename: product[:fileName])
+      file = URI.open(product[:file])
+      obj.photo.attach(io: file, filename: product[:fileName])
     end
 
     puts "Creating reviews"

@@ -6,7 +6,6 @@ import prime from "../../assets/prime.png";
 
 function ProductItem({ product }) {
   const { id, name, price, ratings, reviewCount } = product;
-  console.log(product);
 
   let priceStr = price.toString().split(".");
   let wholeNum = priceStr[0];
@@ -42,8 +41,7 @@ function ProductItem({ product }) {
           <Link to={`/products/${id}`}>
             <img
               className="product-item-image"
-              // src={product.photoUrl}
-              src="https://m.media-amazon.com/images/I/71sYQsPerwL._AC_SX466_.jpg"
+              src={product.photoUrl}
               alt="product"
             ></img>
           </Link>

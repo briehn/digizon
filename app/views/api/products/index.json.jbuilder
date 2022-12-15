@@ -10,7 +10,7 @@
         else
             ratings = sum / product.reviews.length unless sum == 0
         end
-        # json.photoUrl product.photo.url
+        json.photoUrl product.photo.url
         json.ratings ratings
         json.reviewCount product.reviews.length
     end

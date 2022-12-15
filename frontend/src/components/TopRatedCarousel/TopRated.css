@@ -1,33 +1,58 @@
 .top-rated-carousel-container {
-    position: relative;
-    background: white;
-    margin: 25px 200px;
-    padding: 25px 50px;
-    height: 200px;
-    top: -125px;
+  font-family: "Amazon Ember", sans-serif;
+  position: relative;
+  background: white;
+  padding: 20px 20px;
+  width: 90%;
+  height: 235px;
+  top: -125px;
+  margin: 0 auto;
 }
 
 .top-rated-carousel-provider {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .top-rated-label {
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 10px;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .top-rated-carousel-button-container {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-  }
-
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
 
 .top-rated-carousel {
-    height: 200px;
-    margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  margin-right: 15px;
+}
+
+.top-rated-image {
+  width: 100%;
+  height: auto;
+}
+
+.top-rated-button {
+  background: white;
+  border: none;
+  height: 50%;
+  padding: 25px 3px;
+  box-shadow: 0 1px 3px #888;
+}
+
+.top-rated-button-image {
+  width: 40%;
+}
+
+.next {
+  clip: rect(-10px, 45px, 110px, -10px);
 }
