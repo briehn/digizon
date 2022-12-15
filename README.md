@@ -12,13 +12,13 @@
 4. Add, view, edit and delete products in a cart
 5. Search for specific products by name or by category
 
-# **V.I.F (Very Important Feature)**
+# **V.I.F (Very Important Features)**
 
 ## **Search**
 
 Being able to click a category to filter products or search for a product by name are, programatically, used the same way.
 
-```js
+```ruby
 class Api::ProductsController < ApplicationController
     def index
         @products = Product.all
@@ -41,7 +41,7 @@ end
 
 When receiving a response from the Products Controller, with only a difference in parameters, a specific list of Products can be given. With this function Digizon is able to, with one request, gain access to products by category or by specific input characters via search bar. Case sensitivity was not initially considered and was an issue that arose when testing out the product. An easy fix with a conversion to lowercase for both the query and search parameter. Similar to Amazon, when a user inputs a search value that results in a non-existent product, the controller returns all products insatead.
 
-With the addition and functionality of a Search Bar, an issue arose where the search bar would not clear itself upon clicking a link or being redirected to another page. This was resolved by adding event listeners to the document and window itself. Presenting, **DOM Manipulation**
+With the addition and functionality of a Search Bar, an issue arose where the search bar would not clear itself upon clicking a link or being redirected to another page. This was resolved by adding event listeners to the document and window itself. Presenting, **DOM Manipulation**:
 
 ```js
 useEffect(() => {
@@ -71,4 +71,48 @@ With this event listeners added, we can now account for user interactions making
 
 ## **Error Handling: User Authentication and Review**
 
-Validations and constraints are applied to both the user and review objects. However, Amazon had a unique method to display their errors and their messages; so, changes had to be made. To handle custom error messages,
+Validations and constraints are applied to both the user and review objects. However, Amazon had a unique method to display their errors and their messages; so, changes had to be made.
+
+```js
+const displayError = (input) => {
+  let messages = {
+    headline: {
+      1: "Please enter your headline.",
+      2: "Please enter at most 100 characters.",
+    },
+    rating: {
+      1: "Please select a star rating",
+    },
+    body: {
+      1: "Please add a written review",
+      2: "Please enter at most 20000 characters",
+    },
+  };
+  let result = "";
+  let type;
+  errors.forEach((error) => {
+    type = error.split(" ")[0].toLowerCase();
+    if (type === input) {
+      if (type === "headline" && headline.length > 100) {
+        result = messages[type][2];
+      } else if (type === "body" && body.length > 20000) {
+        result = messages[type][2];
+      } else {
+        result = messages[input][1];
+      }
+    }
+  });
+  return <p>{result}</p>;
+};
+```
+
+Using the response we get back from our `handleSubmit()` function that dispatches a thunk action creator and catchs any errors, we are able to use those error statements to render an error in a given `<div>` tag in our document with a custom message.
+
+## **Future Features**
+
+###### try saying that 5 times fast
+
+- Add filters to product index page
+- Search a product within a given category
+- Create lists that hold products for future purchases
+- After placing an order, store that order in your profiles past orders page.
