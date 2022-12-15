@@ -1,0 +1,33 @@
+.top-rated-carousel-container {
+    position: relative;
+    background: white;
+    margin: 25px 200px;
+    padding: 25px 50px;
+    height: 200px;
+    top: -125px;
+}
+
+.top-rated-carousel-provider {
+    height: 100%;
+    width: 100%;
+}
+
+.top-rated-label {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.top-rated-carousel-button-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
+
+.top-rated-carousel {
+    height: 200px;
+    margin-right: 15px;
+}

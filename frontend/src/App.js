@@ -13,12 +13,16 @@ import ReviewCreateForm from "./components/ReviewFormPage/ReviewCreateForm";
 import ReviewEditForm from "./components/ReviewFormPage/ReviewEditForm";
 import ReviewShowPage from "./components/Reviews/ReviewShowPage";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+import TopRatedCarousel from "./components/TopRatedCarousel";
 import "./reset.css";
 
 function App() {
   return (
     <>
       <Switch>
+        <Route exact path="/test">
+          <TopRatedCarousel />
+        </Route>
         <Route exact path="/">
           <Navigation />
           <CategoryBar />
