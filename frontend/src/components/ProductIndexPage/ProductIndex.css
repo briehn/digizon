@@ -2,7 +2,7 @@
 
 .display-container {
   margin-top: 2%;
-  margin-left: 20%;
+  margin-left: 15%;
   margin-bottom: 5%;
   font-family: "Amazon Ember", sans-serif;
 }
@@ -19,4 +19,29 @@
 .search-results {
   color: #c45500;
   font-weight: 700;
+}
+
+.display-label {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+}
+
+.sort-by-menu {
+  float: right;
+  margin-right: 50px;
+  border-color: #d5d9d9;
+  border-radius: 8px;
+  color: #0f1111;
+  background: #f0f2f2;
+  height: 22px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 11px;
+  line-height: 20px;
 }

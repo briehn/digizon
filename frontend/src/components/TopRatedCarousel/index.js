@@ -10,7 +10,6 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { fetchProducts, getProducts } from "../../store/product";
-import grid01 from "../../assets/grid_assets/grid_0_1.png";
 
 import "./TopRated.css";
 

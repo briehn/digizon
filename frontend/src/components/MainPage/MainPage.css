@@ -30,12 +30,12 @@
 .grid-box {
   position: relative;
   z-index: 0;
-  top: -200px;
-  height: 400px;
+  top: -180px;
+  height: 350px;
   padding: 20px 10px 0;
   margin: 25px 10px;
   background-color: white;
-  width: 315px;
+  width: 320px;
 }
 
 .grid-image-label {
