@@ -24,6 +24,13 @@
   align-items: center;
 }
 
+.product-item-rating-val {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-right: 4px;
+}
+
 .product-ratings-length {
   font-size: 14px;
   line-height: 20px;

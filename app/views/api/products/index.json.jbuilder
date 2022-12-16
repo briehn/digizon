@@ -8,7 +8,7 @@
         if sum == 0
             ratings = 0
         else
-            ratings = sum / product.reviews.length unless sum == 0
+            ratings = sum / product.reviews.length.to_f unless sum == 0
         end
         json.photoUrl product.photo.url
         json.ratings ratings

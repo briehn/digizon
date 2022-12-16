@@ -50,6 +50,7 @@ function ProductItem({ product }) {
           {name}
         </Link>
         <div className="product-item-rating">
+          <span className="product-item-rating-val">{ratings.toFixed(2)}</span>
           {displayStarRating()}
           <span className="product-ratings-length">{reviewCount}</span>
         </div>
