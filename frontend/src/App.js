@@ -15,10 +15,12 @@ import ReviewShowPage from "./components/Reviews/ReviewShowPage";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import TopRatedCarousel from "./components/TopRatedCarousel";
 import "./reset.css";
+import ScrolltoTop from "./scrolltoTop";
 
 function App() {
   return (
     <>
+      <ScrolltoTop />
       <Switch>
         <Route exact path="/">
           <Navigation />

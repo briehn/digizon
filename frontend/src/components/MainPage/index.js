@@ -1,20 +1,20 @@
 import "./MainPage.css";
 import { Link } from "react-router-dom";
 import Carousel from "../Carousel";
-import grid01 from "../../assets/grid_assets/grid_0_1.png"
-import grid02 from "../../assets/grid_assets/grid_0_2.png"
-import grid03 from "../../assets/grid_assets/grid_0_3.png"
-import grid04 from "../../assets/grid_assets/grid_0_4.png"
+import grid01 from "../../assets/grid_assets/grid_0_1.png";
+import grid02 from "../../assets/grid_assets/grid_0_2.png";
+import grid03 from "../../assets/grid_assets/grid_0_3.png";
+import grid04 from "../../assets/grid_assets/grid_0_4.png";
 
-import grid05 from "../../assets/grid_assets/grid_0_5.png"
-import grid06 from "../../assets/grid_assets/grid_0_6.png"
-import grid07 from "../../assets/grid_assets/grid_0_7.png"
-import grid08 from "../../assets/grid_assets/grid_0_8.png"
+import grid05 from "../../assets/grid_assets/grid_0_5.png";
+import grid06 from "../../assets/grid_assets/grid_0_6.png";
+import grid07 from "../../assets/grid_assets/grid_0_7.png";
+import grid08 from "../../assets/grid_assets/grid_0_8.png";
 
-import grid09 from "../../assets/grid_assets/grid_0_9.png"
-import grid10 from "../../assets/grid_assets/grid_1_0.png"
-import grid11 from "../../assets/grid_assets/grid_1_1.png"
-import grid12 from "../../assets/grid_assets/grid_1_2.png"
+import grid09 from "../../assets/grid_assets/grid_0_9.png";
+import grid10 from "../../assets/grid_assets/grid_1_0.png";
+import grid11 from "../../assets/grid_assets/grid_1_1.png";
+import grid12 from "../../assets/grid_assets/grid_1_2.png";
 import TopRatedCarousel from "../TopRatedCarousel";
 
 function MainPage() {
@@ -39,11 +39,12 @@ function MainPage() {
             </div>
             <div className="grid-box-image">
               <Link to="/products/18/">
-              <img
-                className="grid-image"
-                src={grid02}//replace with image of random digitama
-                alt="grid-showcase"
-              ></img></Link>
+                <img
+                  className="grid-image"
+                  src={grid02} //replace with image of random digitama
+                  alt="grid-showcase"
+                ></img>
+              </Link>
               <div className="grid-image-label">Try-Your-Luck</div>
             </div>
             <div className="grid-box-image">
@@ -58,11 +59,12 @@ function MainPage() {
             </div>
             <div className="grid-box-image">
               <Link to="/products/17">
-              <img
-                className="grid-image"
-                src={grid04} //replace with a crest
-                alt="grid-showcase"
-              ></img></Link>
+                <img
+                  className="grid-image"
+                  src={grid04} //replace with a crest
+                  alt="grid-showcase"
+                ></img>
+              </Link>
               <div className="grid-image-label">Most Re-CREST-ed</div>
             </div>
           </div>
@@ -72,39 +74,41 @@ function MainPage() {
           <div className="grid-box-image-container">
             <div className="grid-box-image">
               <Link to="/products/5">
-              <img
-                className="grid-image"
-                src={grid05} //replace with data link device
-                alt="grid-showcase"
-              ></img></Link>
+                <img
+                  className="grid-image"
+                  src={grid05} //replace with data link device
+                  alt="grid-showcase"
+                ></img>
+              </Link>
               <div className="grid-image-label">Data Link For Life</div>
             </div>
             <div className="grid-box-image">
               <Link to="/category/Crests">
-              <img
-                className="grid-image"
-                src={grid06} //replace with image of digitag
-                alt="grid-showcase"
-              ></img></Link>
+                <img
+                  className="grid-image"
+                  src={grid06} //replace with image of digitag
+                  alt="grid-showcase"
+                ></img>
+              </Link>
               <div className="grid-image-label">Tag You're It</div>
             </div>
             <div className="grid-box-image">
               <Link to="/products/19">
-              <img
-                className="grid-image"
-                src={grid07} //replace with digitama
-                alt="grid-showcase"
-              ></img>
+                <img
+                  className="grid-image"
+                  src={grid07} //replace with digitama
+                  alt="grid-showcase"
+                ></img>
               </Link>
               <div className="grid-image-label">Best Priced Digitama</div>
             </div>
             <div className="grid-box-image">
               <Link to="/products/7">
-              <img
-                className="grid-image"
-                src={grid08} //replace with crest
-                alt="grid-showcase"
-              ></img>
+                <img
+                  className="grid-image"
+                  src={grid08} //replace with crest
+                  alt="grid-showcase"
+                ></img>
               </Link>
               <div className="grid-image-label">Best Crest, Not For Teeth</div>
             </div>
@@ -115,21 +119,22 @@ function MainPage() {
           <div className="grid-box-image-container">
             <div className="grid-box-image">
               <Link to="/products/19">
-              <img
-                className="grid-image"
-                src={grid09}
-                alt="grid-showcase"
-              ></img>
+                <img
+                  className="grid-image"
+                  src={grid09}
+                  alt="grid-showcase"
+                ></img>
               </Link>
               <div className="grid-image-label">Main Character Vibez</div>
             </div>
             <div className="grid-box-image">
               <Link to="/products/27">
-              <img
-                className="grid-image"
-                src={grid10}
-                alt="grid-showcase"
-              ></img></Link>
+                <img
+                  className="grid-image"
+                  src={grid10}
+                  alt="grid-showcase"
+                ></img>
+              </Link>
               <div className="grid-image-label">IT'S SO CUTE</div>
             </div>
             <div className="grid-box-image">
@@ -143,11 +148,12 @@ function MainPage() {
             </div>
             <div className="grid-box-image">
               <Link to="/products/20">
-              <img
-                className="grid-image"
-                src={grid12}
-                alt="grid-showcase"
-              ></img></Link>
+                <img
+                  className="grid-image"
+                  src={grid12}
+                  alt="grid-showcase"
+                ></img>
+              </Link>
               <div className="grid-image-label">Underdog</div>
             </div>
           </div>
@@ -160,7 +166,7 @@ function MainPage() {
           </div>
         </div> */}
       </div>
-      <TopRatedCarousel/>
+      <TopRatedCarousel />
     </div>
   );
 }
