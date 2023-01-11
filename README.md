@@ -75,6 +75,8 @@ With this event listeners added, we can now account for user interactions making
 
 Validations and constraints are applied to both the user and review objects. However, Amazon had a unique method to display their errors and their messages; so, changes had to be made.
 
+![Error Handling](./assets/error_handling.png)
+
 ```js
 const displayError = (input) => {
   let messages = {
