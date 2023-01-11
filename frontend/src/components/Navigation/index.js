@@ -208,7 +208,9 @@ function Navigation() {
           </div>
           <div className="nav-right-container">
             <span>Returns</span>
-            <p>& Orders</p>
+            <p>
+              & Orders <span className="disabled">(Disabled)</span>
+            </p>
           </div>
           <Link className="cart-link" to={login ? "/carts" : "/login"}>
             <div className=" nav-cart-container">

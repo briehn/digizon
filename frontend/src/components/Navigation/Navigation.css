@@ -229,12 +229,17 @@ a {
 }
 
 .nav-cart-count {
-  font-size: 18px;
+  font-size: 16px;
   color: #f08804;
   font-weight: bold;
   position: absolute;
-  right: 66px;
+  right: 63px;
   top: 15px;
+  text-align: center;
+}
+
+.disabled {
+  color: red;
 }
 
 .dropdown-signup-link:hover {
