@@ -18,6 +18,8 @@
 
 Being able to click a category to filter products or search for a product by name are, programatically, used the same way.
 
+![Search](./assets/search.gif)
+
 ```ruby
 class Api::ProductsController < ApplicationController
     def index
